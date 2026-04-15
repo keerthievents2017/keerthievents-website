@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>KEERTHI EVENTS | Premium Birthday Architects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root { --accent: #FF477E; --dark: #121212; --gold: #D4AF37; --whatsapp: #25D366; --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+
+        /* LUXURY DIGITAL BACKGROUND */
+        body { 
+            font-family: 'Poppins', sans-serif; margin: 0; background-color: #121212;
+            background-image: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+            background-attachment: fixed; color: white; overflow-x: hidden; 
+        }
+
+        /* PREMIUM ENTRANCE */
+        #site-entrance {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, #2c2c2c 0%, #000000 100%);
+            z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            animation: fadeOutMain 1s forwards 3s;
+        }
+        #site-entrance h1 {
+            font-family: 'Playfair Display', serif; font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900; color: var(--gold); text-shadow: 10px 10px 30px rgba(0,0,0,0.6);
+            letter-spacing: 8px; text-transform: uppercase; margin: 0; text-align: center;
+            animation: fadeInUp 2s ease-out forwards;
+        }
+        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeOutMain { 100% { opacity: 0; visibility: hidden; } }
+
+        /* SLOW SMOOTH LANDING POPUP */
+        #social-popup {
+            position: fixed; top: -150%; left: 50%; transform: translateX(-50%);
+            width: 320px; background: white; padding: 30px; border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6); z-index: 10000;
+            text-align: center; transition: all 2.5s cubic-bezier(0.23, 1, 0.32, 1); 
+            color: var(--dark); opacity: 0;
+        }
+        #social-popup.active { top: 50%; transform: translate(-50%, -50%); opacity: 1; }
+        .overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9999; display: none; opacity: 0; transition: opacity 1.5s; }
+        .overlay.active { display: block; opacity: 1; }
+        .popup-insta-btn { display: inline-block; padding: 14px 25px; background: var(--insta); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 15px; width: 100%; }
+
+        /* NAVIGATION & HERO */
+        nav { padding: 15px 25px; display: flex; justify-content: center; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(212,175,55,0.2); }
+        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--gold); }
+
+        header { 
+            min-height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=1500&q=80'); 
+            background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 25px; color: white;
+        }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); color: var(--gold); margin-bottom: 20px; }
+        .brand-story { max-width: 800px; font-size: 15px; line-height: 1.8; font-weight: 300; }
+        .highlight { color: var(--gold); font-weight: 700; text-transform: uppercase; }
+
+        /* FORM CONTAINER */
+        .main-container { 
+            max-width: 800px; margin: -60px auto 40px; background: rgba(255, 255, 255, 0.08); 
+            padding: 40px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5); width: 92%; position: relative; z-index: 10; backdrop-filter: blur(20px);
+        }
+        .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; }
+        .custom-trigger { background: rgba(212, 175, 55, 0.1); color: var(--gold); border: 2px dashed var(--gold); padding: 18px; border-radius: 15px; text-align: center; margin: 25px 0; cursor: pointer; font-weight: 600; }
+        .btn-register { background: var(--gold); color: var(--dark); padding: 20px; border: none; width: 100%; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; }
+
+        /* TESTIMONIALS SECTION */
+        .testi-container { max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .testi-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 25px; margin-bottom: 20px; backdrop-filter: blur(10px); }
+
+        /* GALLERY */
+        .gallery-title { font-family: 'Playfair Display', serif; text-align: center; margin: 50px 0 30px; font-size: 2.2rem; color: var(--gold); }
+        .vertical-gallery { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 0 20px 60px; }
+        .gallery-item { width: 100%; max-width: 600px; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); cursor: zoom-in; border: 1px solid rgba(212,175,55,0.3); }
+        .gallery-item img { width: 100%; height: auto; display: block; }
+
+        /* FLOATING SOCIAL */
+        .floating-social { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
+        .social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); cursor: pointer; border: none; }
+        .whatsapp { background: var(--whatsapp); }
+        .instagram { background: #fff; }
+
+        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 11000; display: none; justify-content: center; align-items: center; padding: 20px; }
+        #lightbox img { max-width: 100%; max-height: 90%; border-radius: 15px; border: 2px solid var(--gold); }
+    </style>
+</head>
+<body>
+
+<div id="site-entrance"><h1>KEERTHI<br>EVENTS</h1></div>
+
+<div class="overlay" id="overlay" onclick="closePopup()"></div>
+<div id="social-popup">
+    <img src="https://img.icons8.com/color/96/instagram-new.png" width="60" alt="Insta">
+    <h3 style="font-family: 'Playfair Display'; margin-top: 10px;">Follow us on Instagram</h3>
+    <p style="font-size: 13px; color: #666;">For more birthday updates and party inspiration!</p>
+    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="popup-insta-btn">Follow @keerthi_events_</a>
+    <p onclick="closePopup()" style="margin-top: 20px; font-size: 12px; cursor: pointer; color: #999; text-decoration: underline;">Dismiss</p>
+</div>
+
+<div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src=""></div>
+
+<nav><div class="logo">KEERTHI EVENTS</div></nav>
+
+<header>
+    <h1 class="hero-title">"Transforming Moments into Masterpieces."</h1>
+    <p class="brand-story">
+        At <span class="highlight">KEERTHI EVENTS</span>, we don't just organize functions; we craft experiences. From the delicate touch of fresh floral arrangements to the grand spectacle of themed birthday galas, we bring your vision to life with precision and passion. Serving clients across the heart of India, we ensure that while you enjoy the moment, <span class="highlight">WE HANDLE THE MAGIC.</span>
+    </p>
+</header>
+
+<div class="main-container">
+    <form id="regForm" action="https://sheetdb.io/api/v1/YOUR_SHEETDB_ID" method="POST">
+        <h3 style="font-family: 'Playfair Display'; margin-top:0; color: var(--gold);">Register Now</h3>
+        <input type="text" name="data[Name]" placeholder="Full Name" class="input-field" required>
+        <input type="tel" name="data[Phone]" placeholder="Contact Number" class="input-field" required>
+        <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
+
+        <div class="custom-trigger" onclick="document.getElementById('customBox').style.display='block'">✨ Request a Customised Theme</div>
+        <textarea id="customBox" name="data[Custom_Theme]" placeholder="Describe your dream theme..." style="display:none; width:100%; padding:15px; border-radius:12px; border:1px solid rgba(212,175,55,0.5); background: rgba(0,0,0,0.3); color: white; margin-bottom: 20px; font-family: inherit;"></textarea>
+
+        <button type="submit" class="btn-register">REGISTER NOW</button>
+    </form>
+</div>
+
+<h2 class="gallery-title">Portfolio Highlights</h2>
+<div class="vertical-gallery">
+    <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80"></div>
+    <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1517263904808-5dc91e3e7044?auto=format&fit=crop&w=800&q=80"></div>
+    <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=800&q=80"></div>
+</div>
+
+<div class="testi-container">
+    <h2 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 30px;">Client Love</h2>
+    <div id="testimonial-list">
+        </div>
+</div>
+
+<section class="final-statement" style="text-align: center; padding: 100px 20px;">
+    <h2 style="font-family: 'Playfair Display'; color: var(--gold);">Crafting unforgettable</h2>
+    <h2 style="font-family: 'Playfair Display'; color: var(--gold);">memories of your life.</h2>
+    <div style="margin-top: 40px; color: var(--gold); font-family: 'Playfair Display'; font-size: 1.2rem; letter-spacing: 4px;">KEERTHI EVENTS</div>
+    <div style="font-size: 11px; opacity: 0.5; margin-top: 10px; letter-spacing: 2px;">EST. 2017 | ALL INDIA SERVICE</div>
+</section>
+
+<div class="floating-social">
+    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="social-btn instagram">
+        <img src="https://img.icons8.com/color/48/instagram-new.png" width="32">
+    </a>
+    <a href="https://wa.me/917893189877" target="_blank" class="social-btn whatsapp">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="32">
+    </a>
+</div>
+
+<script>
+    const SHEETDB_ID = 'YOUR_SHEETDB_ID'; // <--- ADD YOUR ID HERE
+
+    window.onload = function() {
+        setTimeout(() => {
+            document.getElementById('overlay').classList.add('active');
+            document.getElementById('social-popup').classList.add('active');
+        }, 10000);
+        loadTestimonials();
+    };
+
+    function loadTestimonials() {
+        const list = document.getElementById('testimonial-list');
+        fetch(`https://sheetdb.io/api/v1/${SHEETDB_ID}?sheet=Testimonials`)
+        .then(res => res.json())
+        .then(data => {
+            if(data.length > 0) {
+                list.innerHTML = data.slice(-2).reverse().map(t => `
+                    <div class="testi-card">
+                        <div style="color: var(--gold); margin-bottom: 10px;">★★★★★</div>
+                        <p style="font-style: italic; opacity: 0.8;">"${t.Review}"</p>
+                        <div style="font-weight: 600; color: var(--gold); margin-top: 10px;">— ${t.Name}</div>
+                    </div>
+                `).join('');
+            } else { showFallback(); }
+        }).catch(() => showFallback());
+    }
+
+    function showFallback() {
+        document.getElementById('testimonial-list').innerHTML = `
+            <div class="testi-card">
+                <div style="color: var(--gold); margin-bottom: 10px;">★★★★★</div>
+                <p style="font-style: italic; opacity: 0.8;">"Absolute magic! They took our vision and made it better than we imagined."</p>
+                <div style="font-weight: 600; color: var(--gold); margin-top: 10px;">— Happy Client</div>
+            </div>`;
+    }
+
+    function closePopup() {
+        document.getElementById('social-popup').classList.remove('active');
+        document.getElementById('overlay').classList.remove('active');
+    }
+
+    function viewBig(el) {
+        document.getElementById('lightbox-img').src = el.querySelector('img').src;
+        document.getElementById('lightbox').style.display = 'flex';
+    }
+
+    document.getElementById('regForm').onsubmit = function(e) {
+        e.preventDefault();
+        fetch(this.action, { method: "POST", body: new FormData(this) })
+        .then(() => { alert("Thank you for registering"); this.reset(); });
+    };
+</script>
+
+</body>
+</html>
