@@ -33,7 +33,6 @@
         @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
         @keyframes fadeOutMain { 100% { opacity: 0; visibility: hidden; } }
 
-        /* NAVIGATION & HERO */
         nav { padding: 15px 25px; display: flex; justify-content: center; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(212,175,55,0.2); }
         .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--gold); }
 
@@ -42,18 +41,18 @@
             background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 25px; color: white;
         }
 
-        /* SEPARATE ENTERTAINMENT SECTION */
-        .ent-section { padding: 80px 20px; text-align: center; }
-        .ent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
-        .ent-card { 
-            background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); 
-            padding: 25px; border-radius: 20px; transition: 0.3s;
+        /* SEPARATE SECTION STYLE */
+        .section-box {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212,175,55,0.2); 
+            padding: 25px; border-radius: 20px; margin-bottom: 25px; text-align: left;
         }
-        .ent-card:hover { border-color: var(--gold); transform: translateY(-5px); background: rgba(212,175,55,0.05); }
-        .ent-card i { font-size: 30px; display: block; margin-bottom: 10px; }
-        .ent-card h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 16px; margin: 10px 0; }
+        .section-box h4 { font-family: 'Playfair Display', serif; color: var(--gold); margin: 0 0 15px 0; font-size: 18px; }
 
-        /* FORM CONTAINER */
+        .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .checkbox-grid label { font-size: 13px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .checkbox-grid input { accent-color: var(--gold); transform: scale(1.2); }
+
+        /* MAIN FORM CONTAINER */
         .main-container { 
             max-width: 800px; margin: 40px auto; background: rgba(255, 255, 255, 0.08); 
             padding: 40px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1);
@@ -61,13 +60,11 @@
         }
         .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; }
 
-        /* BUTTONS */
-        .btn-gold { background: var(--gold); color: var(--dark); padding: 18px 40px; border: none; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
-        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(212,175,55,0.3); }
+        .btn-register { background: var(--gold); color: var(--dark); padding: 20px; border: none; width: 100%; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .btn-register:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
 
-        .floating-social { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
-        .social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
-        .whatsapp { background: var(--whatsapp); }
+        .floating-social { position: fixed; bottom: 25px; right: 25px; z-index: 1000; }
+        .whatsapp { background: var(--whatsapp); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     </style>
 </head>
 <body>
@@ -78,48 +75,55 @@
 
 <header>
     <h1 style="font-family: 'Playfair Display'; color: var(--gold); font-size: clamp(2rem, 8vw, 3.5rem);">"Transforming Moments into Masterpieces."</h1>
-    <p style="max-width: 700px; opacity: 0.8; line-height: 1.8;">Since 2017, we have been crafting the most exclusive birthday experiences across India.</p>
+    <p style="max-width: 700px; opacity: 0.8; margin-top: 20px;">Crafting premium celebrations since 2017.</p>
 </header>
 
-<section class="ent-section" id="entertainment">
-    <h2 style="font-family: 'Playfair Display'; color: var(--gold); font-size: 2.5rem;">The Magic Menu</h2>
-    <p style="opacity: 0.6;">Choose your entertainment activities</p>
-    
-    <div class="ent-grid">
-        <div class="ent-card"><i>🎩</i><h3>Magic Show</h3></div>
-        <div class="ent-card"><i>🎨</i><h3>Tattoo Artist</h3></div>
-        <div class="ent-card"><i>🤡</i><h3>Mascot</h3></div>
-        <div class="ent-card"><i>🍿</i><h3>Live Stalls</h3></div>
-        <div class="ent-card"><i>🎤</i><h3>Game Anchor</h3></div>
-        <div class="ent-card"><i>📸</i><h3>Photography</h3></div>
-    </div>
-    
-    <a href="#register" class="btn-gold">BOOK YOUR ACTIVITIES</a>
-</section>
-
-<div class="main-container" id="register">
+<div class="main-container">
     <form id="regForm" action="https://sheetdb.io/api/v1/l06xavka0btnf" method="POST">
-        <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 25px;">Reserve Your Date</h3>
+        <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 25px; text-align: center;">Event Reservation</h3>
         
         <input type="text" name="data[Name]" placeholder="Full Name" class="input-field" required>
         <input type="text" name="data[Phone]" placeholder="Contact Number" class="input-field" required>
         <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
-        
-        <p style="font-size: 14px; color: var(--gold); margin: 15px 0 10px; text-align: left;">Confirm Selected Activities:</p>
-        <textarea name="data[Activities]" placeholder="List your chosen activities (e.g. Magic Show, Mascot...)" class="input-field" style="height: 100px;"></textarea>
 
-        <button type="submit" class="btn-gold" style="width: 100%; border-radius: 15px;">SUBMIT REGISTRATION</button>
+        <div class="section-box">
+            <h4>Select Your Preferred Themes</h4>
+            <div class="checkbox-grid">
+                <label><input type="checkbox" name="data[Custom_Theme]" value="Jungle Theme"> Jungle Safari</label>
+                <label><input type="checkbox" name="data[Custom_Theme]" value="Princess/Barbie"> Princess/Barbie</label>
+                <label><input type="checkbox" name="data[Custom_Theme]" value="Space Adventure"> Space Adventure</label>
+                <label><input type="checkbox" name="data[Custom_Theme]" value="Luxury Floral"> Luxury Floral</label>
+                <label><input type="checkbox" name="data[Custom_Theme]" value="Cocomelon"> Cocomelon</label>
+                <label><input type="checkbox" name="data[Custom_Theme]" value="Custom/Other"> Other (Specify below)</label>
+            </div>
+            <input type="text" name="data[Theme_Details]" placeholder="Details for custom theme..." class="input-field" style="margin-top: 15px; font-size: 13px;">
+        </div>
+
+        <div class="section-box">
+            <h4>Entertainment Activities</h4>
+            <div class="checkbox-grid">
+                <label><input type="checkbox" name="data[Activities]" value="Magic Show"> Magic Show</label>
+                <label><input type="checkbox" name="data[Activities]" value="Tattoo Artist"> Tattoo Artist</label>
+                <label><input type="checkbox" name="data[Activities]" value="Mascot"> Mascot</label>
+                <label><input type="checkbox" name="data[Activities]" value="Game Anchor"> Game Anchor</label>
+                <label><input type="checkbox" name="data[Activities]" value="Live Stalls"> Live Stalls</label>
+                <label><input type="checkbox" name="data[Activities]" value="Photography"> Photography</label>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-register">REGISTER NOW</button>
     </form>
 </div>
 
-<section style="text-align: center; padding: 80px 20px;">
+<section style="text-align: center; padding: 100px 20px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9));">
     <h2 style="font-family: 'Playfair Display'; color: var(--gold);">Crafting unforgettable</h2>
     <h2 style="font-family: 'Playfair Display'; color: var(--gold);">memories of your life.</h2>
-    <div style="margin-top: 30px; opacity: 0.4; font-size: 12px; letter-spacing: 3px;">EST. 2017 | ALL INDIA SERVICE</div>
+    <div style="margin-top: 40px; color: var(--gold); font-family: 'Playfair Display'; font-size: 1.2rem; letter-spacing: 4px;">KEERTHI EVENTS</div>
+    <div style="font-size: 11px; opacity: 0.5; margin-top: 10px; letter-spacing: 2px;">EST. 2017 | ALL INDIA SERVICE</div>
 </section>
 
 <div class="floating-social">
-    <a href="https://wa.me/917893189877" target="_blank" class="social-btn whatsapp">
+    <a href="https://wa.me/917893189877" target="_blank" class="whatsapp">
         <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="32">
     </a>
 </div>
@@ -129,7 +133,7 @@
         e.preventDefault();
         fetch(this.action, { method: "POST", body: new FormData(this) })
         .then(() => { 
-            alert("Thank you! Your registration has been received."); 
+            alert("Thank you for choosing Keerthi Events! We will contact you shortly."); 
             this.reset(); 
         });
     };
