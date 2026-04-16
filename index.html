@@ -59,25 +59,36 @@
         .brand-story { max-width: 800px; font-size: 15px; line-height: 1.8; font-weight: 300; }
         .highlight { color: var(--gold); font-weight: 700; text-transform: uppercase; }
 
-        /* FORM CONTAINER */
+        /* GLASSMORPHISM FORM */
         .main-container { 
             max-width: 800px; margin: -60px auto 40px; background: rgba(255, 255, 255, 0.08); 
             padding: 40px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1);
             box-shadow: 0 25px 50px rgba(0,0,0,0.5); width: 92%; position: relative; z-index: 10; backdrop-filter: blur(20px);
         }
         .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; }
+        .input-field::placeholder { color: rgba(255,255,255,0.5); }
         .custom-trigger { background: rgba(212, 175, 55, 0.1); color: var(--gold); border: 2px dashed var(--gold); padding: 18px; border-radius: 15px; text-align: center; margin: 25px 0; cursor: pointer; font-weight: 600; }
         .btn-register { background: var(--gold); color: var(--dark); padding: 20px; border: none; width: 100%; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; }
 
-        /* TESTIMONIALS SECTION */
-        .testi-container { max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center; }
-        .testi-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 25px; margin-bottom: 20px; backdrop-filter: blur(10px); }
+        /* NEW: ENTERTAINMENT ACTIVITIES SECTION */
+        .section-title { font-family: 'Playfair Display', serif; text-align: center; margin: 60px 0 30px; font-size: 2.2rem; color: var(--gold); }
+        .activities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        .activity-card { 
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(212,175,55,0.3); border-radius: 20px; padding: 20px; 
+            text-align: center; backdrop-filter: blur(10px); transition: 0.3s;
+        }
+        .activity-card:hover { transform: translateY(-10px); background: rgba(212, 175, 55, 0.1); }
+        .activity-card h3 { color: var(--gold); font-family: 'Playfair Display', serif; margin: 15px 0 10px; }
+        .activity-card p { font-size: 13px; opacity: 0.7; line-height: 1.6; }
 
-        /* GALLERY */
-        .gallery-title { font-family: 'Playfair Display', serif; text-align: center; margin: 50px 0 30px; font-size: 2.2rem; color: var(--gold); }
+        /* PORTFOLIO GALLERY */
         .vertical-gallery { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 0 20px 60px; }
         .gallery-item { width: 100%; max-width: 600px; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); cursor: zoom-in; border: 1px solid rgba(212,175,55,0.3); }
         .gallery-item img { width: 100%; height: auto; display: block; }
+        
+        /* TESTIMONIALS */
+        .testi-container { max-width: 800px; margin: 40px auto; padding: 0 20px; text-align: center; }
+        .testi-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 25px; margin-bottom: 20px; backdrop-filter: blur(10px); }
 
         /* FLOATING SOCIAL */
         .floating-social { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
@@ -96,7 +107,7 @@
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 <div id="social-popup">
     <img src="https://img.icons8.com/color/96/instagram-new.png" width="60" alt="Insta">
-    <h3 style="font-family: 'Playfair Display'; margin-top: 10px;">Follow us on Instagram</h3>
+    <h3 style="font-family: 'Playfair Display'; margin-top: 10px; font-size: 1.4rem;">Follow us on Instagram</h3>
     <p style="font-size: 13px; color: #666;">For more birthday updates and party inspiration!</p>
     <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="popup-insta-btn">Follow @keerthi_events_</a>
     <p onclick="closePopup()" style="margin-top: 20px; font-size: 12px; cursor: pointer; color: #999; text-decoration: underline;">Dismiss</p>
@@ -114,7 +125,7 @@
 </header>
 
 <div class="main-container">
-    <form id="regForm" action="https://sheetdb.io/api/v1/YOUR_SHEETDB_ID" method="POST">
+    <form id="regForm" action="https://sheetdb.io/api/v1/l06xavka0btnf" method="POST">
         <h3 style="font-family: 'Playfair Display'; margin-top:0; color: var(--gold);">Register Now</h3>
         <input type="text" name="data[Name]" placeholder="Full Name" class="input-field" required>
         <input type="tel" name="data[Phone]" placeholder="Contact Number" class="input-field" required>
@@ -127,20 +138,43 @@
     </form>
 </div>
 
-<h2 class="gallery-title">Portfolio Highlights</h2>
+<h2 class="section-title">Portfolio Highlights</h2>
 <div class="vertical-gallery">
     <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80"></div>
     <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1517263904808-5dc91e3e7044?auto=format&fit=crop&w=800&q=80"></div>
     <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=800&q=80"></div>
 </div>
 
-<div class="testi-container">
-    <h2 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 30px;">Client Love</h2>
-    <div id="testimonial-list">
-        </div>
+<h2 class="section-title">Entertainment & Magic</h2>
+<div class="activities-grid">
+    <div class="activity-card">
+        <div style="font-size: 30px;">🎩</div>
+        <h3>Magic Shows</h3>
+        <p>Breathtaking illusions and mind-bending magic that leaves every guest in awe.</p>
+    </div>
+    <div class="activity-card">
+        <div style="font-size: 30px;">🎭</div>
+        <h3>Tattoo & Face Paint</h3>
+        <p>Professional artists to transform kids into their favorite superheroes and characters.</p>
+    </div>
+    <div class="activity-card">
+        <div style="font-size: 30px;">🎮</div>
+        <h3>Interactive Games</h3>
+        <p>Expert anchors to keep the energy high with fun, engaging games for all ages.</p>
+    </div>
+    <div class="activity-card">
+        <div style="font-size: 30px;">🍿</div>
+        <h3>Live Stalls</h3>
+        <p>Popcorn, Cotton Candy, and Chocolate Fountains to add that sweet carnival touch.</p>
+    </div>
 </div>
 
-<section class="final-statement" style="text-align: center; padding: 100px 20px;">
+<div class="testi-container">
+    <h2 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 30px;">Client Love</h2>
+    <div id="testimonial-list"></div>
+</div>
+
+<section style="text-align: center; padding: 100px 20px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9));">
     <h2 style="font-family: 'Playfair Display'; color: var(--gold);">Crafting unforgettable</h2>
     <h2 style="font-family: 'Playfair Display'; color: var(--gold);">memories of your life.</h2>
     <div style="margin-top: 40px; color: var(--gold); font-family: 'Playfair Display'; font-size: 1.2rem; letter-spacing: 4px;">KEERTHI EVENTS</div>
@@ -157,7 +191,7 @@
 </div>
 
 <script>
-    const SHEETDB_ID = 'YOUR_SHEETDB_ID'; // <--- ADD YOUR ID HERE
+    const SHEETDB_ID = 'l06xavka0btnf';
 
     window.onload = function() {
         setTimeout(() => {
@@ -178,24 +212,23 @@
                         <div style="color: var(--gold); margin-bottom: 10px;">★★★★★</div>
                         <p style="font-style: italic; opacity: 0.8;">"${t.Review}"</p>
                         <div style="font-weight: 600; color: var(--gold); margin-top: 10px;">— ${t.Name}</div>
-                    </div>
-                `).join('');
+                    </div>`).join('');
             } else { showFallback(); }
         }).catch(() => showFallback());
     }
 
     function showFallback() {
-        document.getElementById('testimonial-list').innerHTML = `
-            <div class="testi-card">
-                <div style="color: var(--gold); margin-bottom: 10px;">★★★★★</div>
-                <p style="font-style: italic; opacity: 0.8;">"Absolute magic! They took our vision and made it better than we imagined."</p>
-                <div style="font-weight: 600; color: var(--gold); margin-top: 10px;">— Happy Client</div>
-            </div>`;
+        document.getElementById('testimonial-list').innerHTML = `<div class="testi-card">
+            <div style="color: var(--gold); margin-bottom: 10px;">★★★★★</div>
+            <p style="font-style: italic; opacity: 0.8;">"Absolute magic! They took our vision and made it better than we imagined."</p>
+            <div style="font-weight: 600; color: var(--gold); margin-top: 10px;">— Happy Client</div>
+        </div>`;
     }
 
     function closePopup() {
         document.getElementById('social-popup').classList.remove('active');
         document.getElementById('overlay').classList.remove('active');
+        setTimeout(() => { document.getElementById('social-popup').style.top = '-150%'; }, 1000);
     }
 
     function viewBig(el) {
