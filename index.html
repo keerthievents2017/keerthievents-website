@@ -33,18 +33,7 @@
         @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
         @keyframes fadeOutMain { 100% { opacity: 0; visibility: hidden; } }
 
-        /* SMOOTH LANDING POPUP */
-        #social-popup {
-            position: fixed; top: -150%; left: 50%; transform: translateX(-50%);
-            width: 320px; background: white; padding: 30px; border-radius: 25px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6); z-index: 10000;
-            text-align: center; transition: all 2.5s cubic-bezier(0.23, 1, 0.32, 1); 
-            color: var(--dark); opacity: 0;
-        }
-        #social-popup.active { top: 50%; transform: translate(-50%, -50%); opacity: 1; }
-        .overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9999; display: none; opacity: 0; transition: opacity 1.5s; }
-        .overlay.active { display: block; opacity: 1; }
-
+        /* NAVIGATION & HERO */
         nav { padding: 15px 25px; display: flex; justify-content: center; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(212,175,55,0.2); }
         .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 900; color: var(--gold); }
 
@@ -52,164 +41,97 @@
             min-height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=1500&q=80'); 
             background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 25px; color: white;
         }
-        .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); color: var(--gold); margin-bottom: 20px; }
-        .brand-story { max-width: 800px; font-size: 15px; line-height: 1.8; font-weight: 300; }
-        .highlight { color: var(--gold); font-weight: 700; text-transform: uppercase; }
 
-        /* GLASSMORPHISM FORM */
+        /* SEPARATE ENTERTAINMENT SECTION */
+        .ent-section { padding: 80px 20px; text-align: center; }
+        .ent-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1000px; margin: 40px auto; }
+        .ent-card { 
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); 
+            padding: 25px; border-radius: 20px; transition: 0.3s;
+        }
+        .ent-card:hover { border-color: var(--gold); transform: translateY(-5px); background: rgba(212,175,55,0.05); }
+        .ent-card i { font-size: 30px; display: block; margin-bottom: 10px; }
+        .ent-card h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 16px; margin: 10px 0; }
+
+        /* FORM CONTAINER */
         .main-container { 
-            max-width: 800px; margin: -60px auto 40px; background: rgba(255, 255, 255, 0.08); 
+            max-width: 800px; margin: 40px auto; background: rgba(255, 255, 255, 0.08); 
             padding: 40px 25px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5); width: 92%; position: relative; z-index: 10; backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5); width: 92%; backdrop-filter: blur(20px);
         }
-        .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; font-size: 15px; }
+        .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; }
 
-        .activities-box {
-            margin: 25px 0; text-align: left; background: rgba(255,255,255,0.03); 
-            padding: 20px; border-radius: 15px; border: 1px solid rgba(212,175,55,0.2);
-        }
-        .activities-box p { font-size: 14px; color: var(--gold); font-weight: 600; margin-bottom: 15px; }
-        .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .checkbox-grid label { font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
-
-        .custom-trigger { background: rgba(212, 175, 55, 0.1); color: var(--gold); border: 2px dashed var(--gold); padding: 18px; border-radius: 15px; text-align: center; margin-bottom: 25px; cursor: pointer; font-weight: 600; }
-        
-        .btn-register { background: var(--gold); color: var(--dark); padding: 20px; border: none; width: 100%; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; transition: 0.3s; }
-        .btn-request { background: transparent; border: 2px solid var(--gold); color: var(--gold); padding: 18px; width: 100%; border-radius: 15px; font-size: 16px; font-weight: 600; cursor: pointer; transition: 0.3s; margin-top: 15px; }
-        .btn-register:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
-        .btn-request:hover { background: var(--gold); color: var(--dark); }
-
-        .gallery-title { font-family: 'Playfair Display', serif; text-align: center; margin: 60px 0 30px; font-size: 2.2rem; color: var(--gold); }
-        .vertical-gallery { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 0 20px 60px; }
-        .gallery-item { width: 100%; max-width: 600px; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); border: 1px solid rgba(212,175,55,0.3); }
-        .gallery-item img { width: 100%; height: auto; display: block; }
+        /* BUTTONS */
+        .btn-gold { background: var(--gold); color: var(--dark); padding: 18px 40px; border: none; border-radius: 50px; font-size: 16px; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn-gold:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(212,175,55,0.3); }
 
         .floating-social { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
-        .social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); cursor: pointer; border: none; }
+        .social-btn { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(0,0,0,0.5); }
         .whatsapp { background: var(--whatsapp); }
-        .instagram { background: #fff; }
-
-        #lightbox { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 11000; display: none; justify-content: center; align-items: center; padding: 20px; }
-        #lightbox img { max-width: 100%; max-height: 90%; border-radius: 15px; border: 2px solid var(--gold); }
     </style>
 </head>
 <body>
 
 <div id="site-entrance"><h1>KEERTHI<br>EVENTS</h1></div>
 
-<div class="overlay" id="overlay" onclick="closePopup()"></div>
-<div id="social-popup">
-    <img src="https://img.icons8.com/color/96/instagram-new.png" width="60" alt="Insta">
-    <h3 style="font-family: 'Playfair Display'; margin-top: 10px;">Follow us on Instagram</h3>
-    <p style="font-size: 13px; color: #666;">For more birthday updates and party inspiration!</p>
-    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" style="display:inline-block; padding: 14px 25px; background: var(--insta); color: white; text-decoration: none; border-radius: 50px; font-weight: 600; margin-top: 15px; width: 100%;">Follow @keerthi_events_</a>
-    <p onclick="closePopup()" style="margin-top: 20px; font-size: 12px; cursor: pointer; color: #999;">Dismiss</p>
-</div>
-
-<div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src=""></div>
-
 <nav><div class="logo">KEERTHI EVENTS</div></nav>
 
 <header>
-    <h1 class="hero-title">"Transforming Moments into Masterpieces."</h1>
-    <p class="brand-story">
-        At <span class="highlight">KEERTHI EVENTS</span>, we don't just organize functions; we craft experiences. From the delicate touch of fresh floral arrangements to the grand spectacle of themed birthday galas, we bring your vision to life with precision and passion. Serving clients across the heart of India, we ensure that while you enjoy the moment, <span class="highlight">WE HANDLE THE MAGIC.</span>
-    </p>
+    <h1 style="font-family: 'Playfair Display'; color: var(--gold); font-size: clamp(2rem, 8vw, 3.5rem);">"Transforming Moments into Masterpieces."</h1>
+    <p style="max-width: 700px; opacity: 0.8; line-height: 1.8;">Since 2017, we have been crafting the most exclusive birthday experiences across India.</p>
 </header>
 
-<div class="main-container">
-    <form id="regForm" action="https://sheetdb.io/api/v1/l06xavka0btnf" method="POST">
-        <h3 style="font-family: 'Playfair Display'; margin-top:0; color: var(--gold);">Event Details</h3>
-        
-        <input type="hidden" name="data[Submission_Type]" id="submissionType" value="General Registration">
+<section class="ent-section" id="entertainment">
+    <h2 style="font-family: 'Playfair Display'; color: var(--gold); font-size: 2.5rem;">The Magic Menu</h2>
+    <p style="opacity: 0.6;">Choose your entertainment activities</p>
+    
+    <div class="ent-grid">
+        <div class="ent-card"><i>🎩</i><h3>Magic Show</h3></div>
+        <div class="ent-card"><i>🎨</i><h3>Tattoo Artist</h3></div>
+        <div class="ent-card"><i>🤡</i><h3>Mascot</h3></div>
+        <div class="ent-card"><i>🍿</i><h3>Live Stalls</h3></div>
+        <div class="ent-card"><i>🎤</i><h3>Game Anchor</h3></div>
+        <div class="ent-card"><i>📸</i><h3>Photography</h3></div>
+    </div>
+    
+    <a href="#register" class="btn-gold">BOOK YOUR ACTIVITIES</a>
+</section>
 
+<div class="main-container" id="register">
+    <form id="regForm" action="https://sheetdb.io/api/v1/l06xavka0btnf" method="POST">
+        <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 25px;">Reserve Your Date</h3>
+        
         <input type="text" name="data[Name]" placeholder="Full Name" class="input-field" required>
         <input type="text" name="data[Phone]" placeholder="Contact Number" class="input-field" required>
         <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
+        
+        <p style="font-size: 14px; color: var(--gold); margin: 15px 0 10px; text-align: left;">Confirm Selected Activities:</p>
+        <textarea name="data[Activities]" placeholder="List your chosen activities (e.g. Magic Show, Mascot...)" class="input-field" style="height: 100px;"></textarea>
 
-        <div class="activities-box">
-            <p>Select Entertainment Activities:</p>
-            <div class="checkbox-grid">
-                <label><input type="checkbox" name="data[Activities]" value="Magic Show"> Magic Show</label>
-                <label><input type="checkbox" name="data[Activities]" value="Tattoo Artist"> Tattoo Artist</label>
-                <label><input type="checkbox" name="data[Activities]" value="Game Anchor"> Game Anchor</label>
-                <label><input type="checkbox" name="data[Activities]" value="Live Stalls"> Live Stalls</label>
-                <label><input type="checkbox" name="data[Activities]" value="Mascot"> Mascot</label>
-                <label><input type="checkbox" name="data[Activities]" value="Photography"> Photography</label>
-            </div>
-        </div>
-
-        <div class="custom-trigger" onclick="document.getElementById('customBox').style.display='block'">✨ Request a Customised Theme</div>
-        <textarea id="customBox" name="data[Custom_Theme]" placeholder="Describe your dream theme..." style="display:none; width:100%; padding:15px; border-radius:12px; border:1px solid rgba(212,175,55,0.5); background: rgba(0,0,0,0.3); color: white; margin-bottom: 25px; font-family: inherit;"></textarea>
-
-        <button type="submit" onclick="document.getElementById('submissionType').value='General Registration'" class="btn-register">REGISTER NOW</button>
-        <button type="submit" onclick="document.getElementById('submissionType').value='Entertainment Request'" class="btn-request">REQUEST ENTERTAINMENT</button>
+        <button type="submit" class="btn-gold" style="width: 100%; border-radius: 15px;">SUBMIT REGISTRATION</button>
     </form>
 </div>
 
-<h2 class="gallery-title">Portfolio Highlights</h2>
-<div class="vertical-gallery">
-    <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=80"></div>
-    <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1517263904808-5dc91e3e7044?auto=format&fit=crop&w=800&q=80"></div>
-    <div class="gallery-item" onclick="viewBig(this)"><img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=800&q=80"></div>
-</div>
-
-<div id="testimonial-list"></div>
-
-<section style="text-align: center; padding: 100px 20px; background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.9));">
+<section style="text-align: center; padding: 80px 20px;">
     <h2 style="font-family: 'Playfair Display'; color: var(--gold);">Crafting unforgettable</h2>
     <h2 style="font-family: 'Playfair Display'; color: var(--gold);">memories of your life.</h2>
-    <div style="margin-top: 40px; color: var(--gold); font-family: 'Playfair Display'; font-size: 1.2rem; letter-spacing: 4px;">KEERTHI EVENTS</div>
-    <div style="font-size: 11px; opacity: 0.5; margin-top: 10px; letter-spacing: 2px;">EST. 2017 | ALL INDIA SERVICE</div>
+    <div style="margin-top: 30px; opacity: 0.4; font-size: 12px; letter-spacing: 3px;">EST. 2017 | ALL INDIA SERVICE</div>
 </section>
 
 <div class="floating-social">
-    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="social-btn instagram"><img src="https://img.icons8.com/color/48/instagram-new.png" width="32"></a>
-    <a href="https://wa.me/917893189877" target="_blank" class="social-btn whatsapp"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="32"></a>
+    <a href="https://wa.me/917893189877" target="_blank" class="social-btn whatsapp">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="32">
+    </a>
 </div>
 
 <script>
-    const SHEETDB_ID = 'l06xavka0btnf';
-
-    window.onload = function() {
-        setTimeout(() => {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('social-popup').classList.add('active');
-        }, 10000);
-        loadTestimonials();
-    };
-
-    function loadTestimonials() {
-        const list = document.getElementById('testimonial-list');
-        fetch(`https://sheetdb.io/api/v1/${SHEETDB_ID}?sheet=Testimonials`)
-        .then(res => res.json())
-        .then(data => {
-            if(data.length > 0) {
-                list.innerHTML = data.slice(-2).reverse().map(t => `
-                    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(212,175,55,0.2); padding: 30px; border-radius: 25px; margin: 0 auto 20px; max-width: 800px; width: 92%; backdrop-filter: blur(10px); text-align: center;">
-                        <div style="color: var(--gold); margin-bottom: 10px;">★★★★★</div>
-                        <p style="font-style: italic; opacity: 0.8;">"${t.Review}"</p>
-                        <div style="font-weight: 600; color: var(--gold); margin-top: 10px;">— ${t.Name}</div>
-                    </div>`).join('');
-            }
-        });
-    }
-
-    function closePopup() {
-        document.getElementById('social-popup').classList.remove('active');
-        document.getElementById('overlay').classList.remove('active');
-        setTimeout(() => { document.getElementById('social-popup').style.top = '-150%'; }, 1000);
-    }
-
-    function viewBig(el) {
-        document.getElementById('lightbox-img').src = el.querySelector('img').src;
-        document.getElementById('lightbox').style.display = 'flex';
-    }
-
     document.getElementById('regForm').onsubmit = function(e) {
         e.preventDefault();
         fetch(this.action, { method: "POST", body: new FormData(this) })
-        .then(() => { alert("Thank you for registering with Keerthi Events!"); this.reset(); });
+        .then(() => { 
+            alert("Thank you! Your registration has been received."); 
+            this.reset(); 
+        });
     };
 </script>
 
