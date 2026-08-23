@@ -79,7 +79,7 @@
             border: 2px solid rgba(212, 175, 55, 0.2); 
             cursor: pointer; 
             transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
-            background: #000; 
+            background: #1e1e1e; 
             height: 220px;
             display: flex;
             flex-direction: column;
@@ -162,38 +162,38 @@
         <p style="text-align: center; opacity: 0.6; font-size: 12px; margin-bottom: 30px;">Tap cards to select your dream event themes</p>
         
         <div class="catalog-grid">
-            <!-- 1. Swan Wings Image -->
+            <!-- 1. Swan Wings -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
                 <img src="swan.jpg" alt="Swan Wings Theme">
                 <div class="label">SWAN & ANGEL WINGS</div>
             </label>
 
-            <!-- 2. Princess Castle Image -->
+            <!-- 2. Princess Castle -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
                 <img src="castle.jpg" alt="Princess Theme">
                 <div class="label">FAIRY CASTLE</div>
             </label>
 
-            <!-- 3. Balloon Sky Image -->
+            <!-- 3. Balloon Sky -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Hot Air Balloon Sky">
                 <img src="balloon.jpg" alt="Balloon Theme">
                 <div class="label">BALLOON SKY VISTA</div>
             </label>
 
-            <!-- 4. Candyland Image -->
+            <!-- 4. Candyland -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
                 <img src="candyland.jpg" alt="Candyland Theme">
                 <div class="label">CANDYLAND CARNIVAL</div>
             </label>
 
-            <!-- 5. Underwater Kingdom Video -->
+            <!-- 5. Underwater Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
-                <video autoplay muted loop playsinline webkit-playsinline>
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="underwater.mp4" type="video/mp4">
                 </video>
                 <div class="label">UNDERWATER REALM</div>
@@ -202,25 +202,25 @@
             <!-- 6. Candyland Walkthrough Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Surya Dev Candyland Gala">
-                <video autoplay muted loop playsinline webkit-playsinline>
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="candyland-video.mp4" type="video/mp4">
                 </video>
                 <div class="label">SWEET CANDYLAND GALA</div>
             </label>
 
-            <!-- 7. Animal Kingdom Walkway Video -->
+            <!-- 7. Animal Walkway Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Animal Kingdom Walkway">
-                <video autoplay muted loop playsinline webkit-playsinline>
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="walkway.mp4" type="video/mp4">
                 </video>
                 <div class="label">ENCHANTED ANIMAL WALKWAY</div>
             </label>
 
-            <!-- 8. Jungle Safari Waterfall Video -->
+            <!-- 8. Jungle Safari Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
-                <video autoplay muted loop playsinline webkit-playsinline>
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="jungle.mp4" type="video/mp4">
                 </video>
                 <div class="label">JUNGLE WATERFALL</div>
@@ -229,7 +229,7 @@
             <!-- 9. Aaradhya Butterfly Gala Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Forest Gala">
-                <video autoplay muted loop playsinline webkit-playsinline>
+                <video autoplay muted loop playsinline preload="metadata">
                     <source src="butterfly.mp4" type="video/mp4">
                 </video>
                 <div class="label">BUTTERFLY FOREST GALA</div>
@@ -259,29 +259,8 @@
 </div>
 
 <script>
-    // Force Autoplay for all video tags
-    document.addEventListener('DOMContentLoaded', () => {
-        const videos = document.querySelectorAll('video');
-        videos.forEach(video => {
-            video.muted = true;
-            video.play().catch(error => {
-                console.log("Autoplay forced retry:", error);
-            });
-        });
-    });
-
-    window.onload = function() { 
-        setTimeout(() => { 
-            document.getElementById('overlay').classList.add('active'); 
-            document.getElementById('social-popup').classList.add('active'); 
-        }, 10000); 
-    };
-
-    function closePopup() { 
-        document.getElementById('social-popup').classList.remove('active'); 
-        document.getElementById('overlay').classList.remove('active'); 
-    }
-
+    window.onload = function() { setTimeout(() => { document.getElementById('overlay').classList.add('active'); document.getElementById('social-popup').classList.add('active'); }, 10000); };
+    function closePopup() { document.getElementById('social-popup').classList.remove('active'); document.getElementById('overlay').classList.remove('active'); }
     document.getElementById('regForm').onsubmit = function(e) {
         e.preventDefault();
         fetch(this.action, { method: "POST", body: new FormData(this) })
