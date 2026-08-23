@@ -193,7 +193,7 @@
             <!-- 5. Underwater Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
-                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="swan.jpg">
                     <source src="underwater.mp4" type="video/mp4">
                 </video>
                 <div class="label">UNDERWATER REALM</div>
@@ -202,7 +202,7 @@
             <!-- 6. Candyland Walkthrough Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Surya Dev Candyland Gala">
-                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="candyland.jpg">
                     <source src="candyland-video.mp4" type="video/mp4">
                 </video>
                 <div class="label">SWEET CANDYLAND GALA</div>
@@ -211,7 +211,7 @@
             <!-- 7. Animal Walkway Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Animal Kingdom Walkway">
-                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="balloon.jpg">
                     <source src="walkway.mp4" type="video/mp4">
                 </video>
                 <div class="label">ENCHANTED ANIMAL WALKWAY</div>
@@ -220,7 +220,7 @@
             <!-- 8. Jungle Safari Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
-                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="candyland.jpg">
                     <source src="jungle.mp4" type="video/mp4">
                 </video>
                 <div class="label">JUNGLE WATERFALL</div>
@@ -229,7 +229,7 @@
             <!-- 9. Aaradhya Butterfly Gala Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Forest Gala">
-                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto" poster="castle.jpg">
                     <source src="butterfly.mp4" type="video/mp4">
                 </video>
                 <div class="label">BUTTERFLY FOREST GALA</div>
@@ -259,8 +259,29 @@
 </div>
 
 <script>
-    window.onload = function() { setTimeout(() => { document.getElementById('overlay').classList.add('active'); document.getElementById('social-popup').classList.add('active'); }, 10000); };
-    function closePopup() { document.getElementById('social-popup').classList.remove('active'); document.getElementById('overlay').classList.remove('active'); }
+    // Force Autoplay for all video tags
+    document.addEventListener('DOMContentLoaded', () => {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.muted = true;
+            video.play().catch(error => {
+                console.log("Autoplay forced retry on interaction:", error);
+            });
+        });
+    });
+
+    window.onload = function() { 
+        setTimeout(() => { 
+            document.getElementById('overlay').classList.add('active'); 
+            document.getElementById('social-popup').classList.add('active'); 
+        }, 10000); 
+    };
+
+    function closePopup() { 
+        document.getElementById('social-popup').classList.remove('active'); 
+        document.getElementById('overlay').classList.remove('active'); 
+    }
+
     document.getElementById('regForm').onsubmit = function(e) {
         e.preventDefault();
         fetch(this.action, { method: "POST", body: new FormData(this) })
