@@ -58,26 +58,70 @@
 
         /* HERO & BRAND STORY */
         header { 
-            min-height: 60vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('balloon.jpg'); 
+            min-height: 55vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('balloon.jpg'); 
             background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 25px;
         }
         .brand-story { max-width: 800px; font-size: 14px; line-height: 1.8; opacity: 0.9; margin: 20px auto; }
         .highlight { color: var(--gold); font-weight: 700; text-transform: uppercase; }
 
-        /* THEME CATALOG GRID */
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; max-width: 1050px; margin: 20px auto; padding: 0 15px; }
-        .catalog-item { position: relative; border-radius: 15px; overflow: hidden; border: 2px solid transparent; cursor: pointer; transition: 0.3s; background: #1a1a1a; min-height: 160px; }
-        .catalog-item img, .catalog-item video { width: 100%; height: 160px; object-fit: cover; display: block; }
+        /* THEME CATALOG GRID (FIXED CARD ASPECT RATIOS) */
+        .catalog-container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .catalog-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 25px; 
+            justify-content: center;
+        }
+        .catalog-item { 
+            position: relative; 
+            border-radius: 18px; 
+            overflow: hidden; 
+            border: 2px solid rgba(212, 175, 55, 0.2); 
+            cursor: pointer; 
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; 
+            background: #1e1e1e; 
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+        .catalog-item img, .catalog-item video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            background: #000;
+        }
         .catalog-item input { position: absolute; opacity: 0; z-index: 2; }
-        .catalog-item .label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.85); font-size: 10px; padding: 8px 4px; color: var(--gold); font-weight: 600; text-align: center; pointer-events: none; z-index: 3; }
+        .catalog-item .label { 
+            position: absolute; 
+            bottom: 0; 
+            width: 100%; 
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.4)); 
+            font-size: 11px; 
+            letter-spacing: 1px;
+            padding: 12px 6px 8px; 
+            color: var(--gold); 
+            font-weight: 600; 
+            text-align: center; 
+            pointer-events: none; 
+            z-index: 3; 
+        }
         
         /* Selected State */
-        .catalog-item:has(input:checked) { border-color: var(--gold); transform: scale(1.04); box-shadow: 0 0 15px var(--gold); }
-        .catalog-item:has(input:checked) .label { background: var(--gold); color: black; font-weight: 700; }
+        .catalog-item:has(input:checked) { 
+            border-color: var(--gold); 
+            transform: translateY(-4px) scale(1.02); 
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4); 
+        }
+        .catalog-item:has(input:checked) .label { 
+            background: var(--gold); 
+            color: #000; 
+            font-weight: 700; 
+        }
 
         /* REGISTRATION FORM */
         .main-container { 
-            max-width: 800px; margin: 30px auto; background: rgba(255, 255, 255, 0.08); 
+            max-width: 800px; margin: 40px auto; background: rgba(255, 255, 255, 0.08); 
             padding: 30px 20px; border-radius: 35px; border: 1px solid rgba(255,255,255,0.1); width: 92%; backdrop-filter: blur(20px);
         }
         .input-field { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; font-family: inherit; }
@@ -113,82 +157,84 @@
 
 <form id="regForm" action="https://sheetdb.io/api/v1/l06xavka0btnf" method="POST">
     
-    <h2 style="font-family: 'Playfair Display'; text-align: center; color: var(--gold); margin-top: 40px;">Grand Theme Catalog</h2>
-    <p style="text-align: center; opacity: 0.6; font-size: 11px;">Tap photos or video clips to select your themes</p>
-    
-    <div class="catalog-grid">
-        <!-- 1. Swan Wings Image -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
-            <img src="swan.jpg" alt="Swan Wings Theme">
-            <div class="label">SWAN & ANGEL WINGS</div>
-        </label>
+    <div class="catalog-container">
+        <h2 style="font-family: 'Playfair Display'; text-align: center; color: var(--gold); margin-top: 20px;">Grand Theme Catalog</h2>
+        <p style="text-align: center; opacity: 0.6; font-size: 12px; margin-bottom: 30px;">Tap cards to select your dream event themes</p>
+        
+        <div class="catalog-grid">
+            <!-- 1. Swan Wings -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
+                <img src="swan.jpg" alt="Swan Wings Theme" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80'">
+                <div class="label">SWAN & ANGEL WINGS</div>
+            </label>
 
-        <!-- 2. Princess Castle Image -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
-            <img src="castle.jpg" alt="Princess Theme">
-            <div class="label">FAIRY CASTLE</div>
-        </label>
+            <!-- 2. Princess Castle -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
+                <img src="castle.jpg" alt="Princess Theme" onerror="this.src='https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=600&q=80'">
+                <div class="label">FAIRY CASTLE</div>
+            </label>
 
-        <!-- 3. Balloon Sky Image -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Hot Air Balloon Sky">
-            <img src="balloon.jpg" alt="Balloon Theme">
-            <div class="label">BALLOON SKY VISTA</div>
-        </label>
+            <!-- 3. Balloon Sky -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Hot Air Balloon Sky">
+                <img src="balloon.jpg" alt="Balloon Theme" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'">
+                <div class="label">BALLOON SKY VISTA</div>
+            </label>
 
-        <!-- 4. Candyland Image -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
-            <img src="candyland.jpg" alt="Candyland Theme">
-            <div class="label">CANDYLAND CARNIVAL</div>
-        </label>
+            <!-- 4. Candyland -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
+                <img src="candyland.jpg" alt="Candyland Theme" onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80'">
+                <div class="label">CANDYLAND CARNIVAL</div>
+            </label>
 
-        <!-- 5. Underwater Video Clip -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="underwater.mp4" type="video/mp4">
-            </video>
-            <div class="label">UNDERWATER REALM</div>
-        </label>
+            <!-- 5. Underwater Video -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="underwater.mp4" type="video/mp4">
+                </video>
+                <div class="label">UNDERWATER REALM</div>
+            </label>
 
-        <!-- 6. Candyland Walkthrough Video Clip -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Surya Dev Candyland Gala">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="candyland-video.mp4" type="video/mp4">
-            </video>
-            <div class="label">SWEET CANDYLAND GALA</div>
-        </label>
+            <!-- 6. Candyland Walkthrough Video -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Surya Dev Candyland Gala">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="candyland-video.mp4" type="video/mp4">
+                </video>
+                <div class="label">SWEET CANDYLAND GALA</div>
+            </label>
 
-        <!-- 7. Animal Walkway Video Clip -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Animal Kingdom Walkway">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="walkway.mp4" type="video/mp4">
-            </video>
-            <div class="label">ENCHANTED ANIMAL WALKWAY</div>
-        </label>
+            <!-- 7. Animal Walkway Video -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Animal Kingdom Walkway">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="walkway.mp4" type="video/mp4">
+                </video>
+                <div class="label">ENCHANTED ANIMAL WALKWAY</div>
+            </label>
 
-        <!-- 8. Jungle Safari Video Clip -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="jungle.mp4" type="video/mp4">
-            </video>
-            <div class="label">JUNGLE WATERFALL</div>
-        </label>
+            <!-- 8. Jungle Safari Video -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="jungle.mp4" type="video/mp4">
+                </video>
+                <div class="label">JUNGLE WATERFALL</div>
+            </label>
 
-        <!-- 9. Aaradhya Butterfly Gala Video Clip -->
-        <label class="catalog-item">
-            <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Forest Gala">
-            <video autoplay muted loop playsinline preload="auto">
-                <source src="butterfly.mp4" type="video/mp4">
-            </video>
-            <div class="label">BUTTERFLY FOREST GALA</div>
-        </label>
+            <!-- 9. Aaradhya Butterfly Gala Video -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Forest Gala">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="butterfly.mp4" type="video/mp4">
+                </video>
+                <div class="label">BUTTERFLY FOREST GALA</div>
+            </label>
+        </div>
     </div>
 
     <!-- REGISTRATION FORM -->
