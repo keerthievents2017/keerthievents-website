@@ -2,403 +2,453 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KEERTHI EVENTS | Luxury Birthday Architects</title>
     
-    <meta name="description" content="Keerthi Events - Premium Birthday Architects across India. Exclusive theme designs, stage decor, and luxury event production.">
-    <meta name="author" content="Keerthi Events">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-dark: #070709;
-            --surface-card: rgba(22, 22, 28, 0.75);
-            --surface-glass: rgba(255, 255, 255, 0.05);
-            --gold-primary: #e6ca85;
-            --gold-gradient: linear-gradient(135deg, #faecd0 0%, #d8b257 50%, #997523 100%);
-            --gold-glow: rgba(230, 202, 133, 0.28);
-            --text-main: #f5f5f7;
+            --bg-main: #0a0a0c;
+            --gold-primary: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #faecd0 0%, #d4af37 50%, #997523 100%);
+            --card-bg: #141418;
+            --border-color: rgba(212, 175, 55, 0.25);
+            --text-main: #ffffff;
             --text-muted: #a0a0b0;
-            --border-glass: rgba(230, 202, 133, 0.18);
             --whatsapp: #25D366;
             --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-main);
             color: var(--text-main);
-            background-image: 
-                radial-gradient(ellipse 70% 50% at 50% 0%, rgba(216, 178, 87, 0.12), transparent 70%),
-                radial-gradient(circle at 10% 90%, rgba(255, 71, 126, 0.05), transparent 45%),
-                url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
-            background-attachment: fixed;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* INTRO OVERLAY */
-        #site-entrance {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #1b1710 0%, #08080a 100%);
-            z-index: 10000; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            animation: fadeOutSplash 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards 2.2s;
-        }
-        .entrance-badge {
-            font-size: 11px; letter-spacing: 6px; color: var(--gold-primary); text-transform: uppercase; margin-bottom: 10px;
-        }
-        #site-entrance h1 {
-            font-family: 'Cinzel', serif; font-size: clamp(2.4rem, 8vw, 5rem);
-            font-weight: 900; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            letter-spacing: 6px; text-transform: uppercase; text-align: center;
-        }
-        @keyframes fadeOutSplash { to { opacity: 0; visibility: hidden; pointer-events: none; } }
-
-        /* HEADER & NAVIGATION */
+        /* NAVIGATION */
         nav {
-            padding: 16px 24px; display: flex; justify-content: space-between; align-items: center;
-            background: rgba(7, 7, 9, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border-glass);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 12, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
         }
-        .brand-title { 
-            font-family: 'Cinzel', serif; font-size: 19px; font-weight: 800; 
-            background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-            letter-spacing: 2px; 
+        .brand {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            font-weight: 800;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
         }
-        .nav-actions { display: flex; gap: 10px; }
-        .nav-btn {
-            font-size: 11px; font-weight: 600; color: #070709; background: var(--gold-gradient);
-            padding: 7px 14px; border-radius: 50px; text-decoration: none; text-transform: uppercase;
-            letter-spacing: 1px; transition: transform 0.2s;
+        .btn-pdf {
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: 700;
+            font-size: 11px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .nav-btn:hover { transform: scale(1.04); }
 
-        /* HERO AREA */
+        /* HERO SECTION */
         header {
-            min-height: 52vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            text-align: center; padding: 50px 20px 30px; position: relative;
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
         }
-        .hero-tag { 
-            display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; 
-            color: var(--gold-primary); margin-bottom: 14px; border: 1px solid var(--border-glass);
-            padding: 5px 14px; border-radius: 30px; background: rgba(230, 202, 133, 0.05);
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            padding: 4px 14px;
+            border-radius: 20px;
         }
         header h1 {
-            font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 6vw, 3.2rem); font-weight: 800;
-            line-height: 1.25; max-width: 880px; margin-bottom: 16px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
-        header h1 span { background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .brand-story { max-width: 720px; font-size: 13.5px; color: var(--text-muted); line-height: 1.8; margin-bottom: 20px; }
+        header h1 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline {
+            max-width: 750px;
+            margin: 0 auto;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
 
         /* CATALOG SHOWCASE */
-        .catalog-section { max-width: 1220px; margin: 0 auto; padding: 20px 20px 50px; }
-        .section-header { text-align: center; margin-bottom: 35px; }
-        .section-header h2 { font-family: 'Cinzel', serif; font-size: clamp(1.5rem, 4vw, 2.2rem); color: var(--gold-primary); letter-spacing: 2px; }
-        .section-header p { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section-title h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
 
-        .catalog-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
+            gap: 20px;
         }
-
-        .catalog-card {
-            position: relative; border-radius: 20px; overflow: hidden;
-            background: var(--surface-card); border: 1px solid var(--border-glass);
-            height: 250px; cursor: pointer; transition: all 0.35s ease;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            backdrop-filter: blur(12px);
+        .card {
+            position: relative;
+            height: 240px;
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: 0.3s ease;
         }
-        .catalog-card:hover {
-            transform: translateY(-5px);
+        .card:hover {
+            transform: translateY(-4px);
             border-color: var(--gold-primary);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 18px var(--gold-glow);
         }
-        .catalog-card img {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            object-fit: cover; z-index: 1; transition: transform 0.6s ease;
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
-        .catalog-card:hover img { transform: scale(1.05); }
-        .card-scrim {
-            position: absolute; inset: 0; z-index: 2;
-            background: linear-gradient(180deg, rgba(7,7,9,0.05) 0%, rgba(7,7,9,0.45) 55%, rgba(7,7,9,0.95) 100%);
+        .card input { position: absolute; opacity: 0; }
+        .card .scrim {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
         }
-        .card-content {
-            position: relative; z-index: 3; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;
+        .card .info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
         }
-        .card-title {
-            font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: #fff;
-            letter-spacing: 1.5px; text-transform: uppercase;
+        .card .title {
+            font-family: 'Cinzel', serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
         }
-        .card-checkbox {
-            width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--gold-primary);
-            display: flex; align-items: center; justify-content: center; transition: 0.3s;
-            background: rgba(0,0,0,0.4);
+        .card .indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .catalog-card input { position: absolute; opacity: 0; }
-        
-        /* Selected State */
-        .catalog-card:has(input:checked) {
+        .card:has(input:checked) {
             border-color: var(--gold-primary);
-            box-shadow: 0 0 20px var(--gold-glow);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
-        .catalog-card:has(input:checked) .card-checkbox {
+        .card:has(input:checked) .indicator {
             background: var(--gold-primary);
         }
-        .catalog-card:has(input:checked) .card-checkbox::after {
-            content: "✓"; color: #070709; font-size: 13px; font-weight: 900;
+        .card:has(input:checked) .indicator::after {
+            content: "✓";
+            color: #000;
+            font-weight: 900;
+            font-size: 11px;
         }
-        .catalog-card:has(input:checked) .card-title {
+        .card:has(input:checked) .title {
             color: var(--gold-primary);
         }
 
-        /* FORM SECTION */
-        .form-section { max-width: 720px; margin: 0 auto 70px; padding: 0 20px; }
-        .form-box {
-            background: rgba(18, 18, 24, 0.7); border: 1px solid var(--border-glass);
-            border-radius: 26px; padding: 36px 28px; backdrop-filter: blur(25px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5); text-align: center;
+        /* REGISTRATION FORM */
+        .form-wrapper {
+            max-width: 650px;
+            margin: 50px auto;
+            background: #111115;
+            padding: 35px 25px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
         }
-        .form-box h3 { font-family: 'Cinzel', serif; font-size: 22px; color: var(--gold-primary); letter-spacing: 2px; margin-bottom: 6px; }
-        .form-box p { font-size: 13px; color: var(--text-muted); margin-bottom: 25px; }
-
-        .input-group { margin-bottom: 16px; text-align: left; }
-        .input-group label { display: block; font-size: 11px; letter-spacing: 1px; color: var(--gold-primary); text-transform: uppercase; margin-bottom: 6px; font-weight: 600; }
-        .input-field {
-            width: 100%; padding: 15px 18px; border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.03);
-            color: #fff; font-family: inherit; font-size: 14px; outline: none; transition: 0.3s;
+        .form-wrapper h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .input-field:focus { border-color: var(--gold-primary); background: rgba(255,255,255,0.06); box-shadow: 0 0 12px var(--gold-glow); }
-
+        .field-group {
+            margin-bottom: 15px;
+        }
+        .field-group label {
+            display: block;
+            font-size: 11px;
+            color: var(--gold-primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .input-box {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+        .input-box:focus {
+            border-color: var(--gold-primary);
+        }
         .btn-submit {
-            width: 100%; padding: 16px; border-radius: 12px; border: none; margin-top: 10px;
-            background: var(--gold-gradient); color: #070709; font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-            cursor: pointer; transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(216,178,87,0.3);
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            background: var(--gold-gradient);
+            color: #000;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 10px;
         }
-        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(216,178,87,0.5); }
+
+        /* FLOATING SOCIALS */
+        .social-bar {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 100;
+        }
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            text-decoration: none;
+        }
+        .social-btn.wa { background: var(--whatsapp); }
+        .social-btn.ig { background: #fff; }
 
         /* FOOTER */
-        footer { text-align: center; padding: 40px 20px 80px; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer-logo { font-family: 'Cinzel', serif; font-size: 18px; color: var(--gold-primary); letter-spacing: 3px; margin-bottom: 6px; font-weight: 700; }
-        .footer-tag { font-size: 11px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
-
-        /* FLOATING SOCIAL ACTIONS */
-        .floating-actions { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
-        .action-circle {
-            width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.6); text-decoration: none; transition: transform 0.2s;
+        footer {
+            text-align: center;
+            padding: 40px 20px 80px;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
-        .action-circle:hover { transform: scale(1.08); }
-        .action-circle.wa { background: var(--whatsapp); }
-        .action-circle.ig { background: white; }
-
-        /* INSTAGRAM POPUP */
-        .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 9998; opacity: 0; visibility: hidden; transition: 0.4s; }
-        .overlay.active { opacity: 1; visibility: visible; }
-        #social-popup {
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -45%);
-            width: 310px; background: #141419; border: 1px solid var(--border-glass); border-radius: 26px;
-            padding: 30px 22px; text-align: center; z-index: 9999; opacity: 0; visibility: hidden; transition: 0.4s ease;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+        .footer-brand {
+            font-family: 'Cinzel', serif;
+            color: var(--gold-primary);
+            font-size: 18px;
+            letter-spacing: 2px;
         }
-        #social-popup.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%); }
-        .popup-btn {
-            display: inline-block; width: 100%; padding: 13px; border-radius: 50px;
-            background: var(--insta); color: white; text-decoration: none; font-size: 13px; font-weight: 600;
-            letter-spacing: 1px; margin-top: 15px; box-shadow: 0 8px 20px rgba(220,39,67,0.3);
+        .footer-text {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 5px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-<div id="site-entrance">
-    <div class="entrance-badge">Luxury Celebrations</div>
-    <h1>KEERTHI<br>EVENTS</h1>
-</div>
-
-<div class="overlay" id="overlay" onclick="closePopup()"></div>
-<div id="social-popup">
-    <img src="https://img.icons8.com/color/96/instagram-new.png" width="50" alt="Instagram" style="margin-bottom: 8px;">
-    <h4 style="font-family: 'Cinzel', serif; font-size: 16px; color: var(--gold-primary); margin-bottom: 5px;">Follow @keerthi_events_</h4>
-    <p style="font-size: 12px; color: var(--text-muted);">Explore our latest luxury setups, behind-the-scenes, and theme reels.</p>
-    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="popup-btn">Follow On Instagram</a>
-    <p onclick="closePopup()" style="margin-top: 14px; font-size: 11px; cursor: pointer; color: #777;">Dismiss</p>
-</div>
-
 <nav>
-    <div class="brand-title">KEERTHI EVENTS</div>
-    <div class="nav-actions">
-        <button onclick="window.print()" class="nav-btn">Download PDF</button>
-    </div>
+    <div class="brand">KEERTHI EVENTS</div>
+    <button onclick="window.print()" class="btn-pdf">Download PDF</button>
 </nav>
 
 <header>
-    <div class="hero-tag">Bespoke Birthday Architects</div>
+    <div class="badge">Bespoke Birthday Architects</div>
     <h1>Transforming Moments Into <span>Masterpieces</span></h1>
-    <p class="brand-story">
-        We specialize in architecting grand thematic birthday celebrations and luxury stage spectacles across India. Every detail engineered with precision so you can immerse in the magic.
-    </p>
+    <p class="tagline">Exclusive thematic stage setups, bespoke decor, and turnkey celebration management across India.</p>
 </header>
 
 <form id="regForm" action="https://sheetdb.io/api/v1/l06xavka0btnf" method="POST">
-
-    <section class="catalog-section">
-        <div class="section-header">
-            <h2>Grand Theme Showcase</h2>
-            <p>Select your favorite setups to personalize your celebration</p>
+    
+    <div class="container">
+        <div class="section-title">
+            <h2>Grand Theme Catalog</h2>
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Select your preferred themes below</p>
         </div>
 
-        <div class="catalog-grid">
-            <label class="catalog-card">
+        <div class="grid">
+            <!-- 1. Swan Wings -->
+            <label class="card">
                 <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
-                <img src="swan wing photo.jpg" alt="Swan Wings Theme">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Swan & Angel Wings</div>
-                    <div class="card-checkbox"></div>
+                <img src="swan wing photo.jpg" alt="Swan Wings Theme" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Swan & Angel Wings</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
 
-            <label class="catalog-card">
+            <!-- 2. Princess Castle -->
+            <label class="card">
                 <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
-                <img src="castle photo.jpg" alt="Princess Fairy Castle">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Princess Fairy Castle</div>
-                    <div class="card-checkbox"></div>
+                <img src="castle photo.jpg" alt="Princess Theme" onerror="this.src='https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Princess Fairy Castle</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
 
-            <label class="catalog-card">
+            <!-- 3. Balloon Sky Vista -->
+            <label class="card">
                 <input type="checkbox" name="data[Custom_Theme]" value="Balloon Sky Vista">
-                <img src="teddy stage photo.jpg" alt="Balloon Sky Vista">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Balloon Sky Vista</div>
-                    <div class="card-checkbox"></div>
+                <img src="teddy stage photo.jpg" alt="Balloon Theme" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Balloon Sky Vista</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
 
-            <label class="catalog-card">
+            <!-- 4. Candyland Carnival -->
+            <label class="card">
                 <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
-                <img src="donut photo.jpg" alt="Candyland Carnival">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Candyland Carnival</div>
-                    <div class="card-checkbox"></div>
+                <img src="donut photo.jpg" alt="Candyland Theme" onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Candyland Carnival</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
 
-            <label class="catalog-card">
-                <input type="checkbox" name="data[Custom_Theme]" value="Underwater Realm">
-                <img src="swan wing photo.jpg" alt="Underwater Realm">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Underwater Realm</div>
-                    <div class="card-checkbox"></div>
+            <!-- 5. Underwater Realm -->
+            <label class="card">
+                <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
+                <img src="swan wing photo.jpg" alt="Underwater Theme" onerror="this.src='https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Underwater Realm</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
 
-            <label class="catalog-card">
-                <input type="checkbox" name="data[Custom_Theme]" value="Grand Carnival & Carousel">
-                <img src="donut photo.jpg" alt="Grand Carnival & Carousel">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Grand Carnival</div>
-                    <div class="card-checkbox"></div>
+            <!-- 6. Grand Carnival & Carousel -->
+            <label class="card">
+                <input type="checkbox" name="data[Custom_Theme]" value="Grand Carnival">
+                <img src="donut photo.jpg" alt="Carnival Theme" onerror="this.src='https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Grand Carnival</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
 
-            <label class="catalog-card">
+            <!-- 7. Butterfly Wonderland -->
+            <label class="card">
                 <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Wonderland">
-                <img src="castle photo.jpg" alt="Butterfly Wonderland">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Butterfly Wonderland</div>
-                    <div class="card-checkbox"></div>
+                <img src="castle photo.jpg" alt="Butterfly Theme" onerror="this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Butterfly Wonderland</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
 
-            <label class="catalog-card">
+            <!-- 8. Jungle Safari Waterfall -->
+            <label class="card">
                 <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
-                <img src="teddy stage photo.jpg" alt="Jungle Safari Waterfall">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <div class="card-title">Jungle Waterfall</div>
-                    <div class="card-checkbox"></div>
+                <img src="teddy stage photo.jpg" alt="Jungle Theme" onerror="this.src='https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=600&q=80'">
+                <div class="scrim"></div>
+                <div class="info">
+                    <span class="title">Jungle Waterfall</span>
+                    <div class="indicator"></div>
                 </div>
             </label>
         </div>
-    </section>
+    </div>
 
-    <section class="form-section">
-        <div class="form-box">
-            <h3>Reserve Your Date</h3>
-            <p>Share your details and our team will connect directly with you.</p>
-
-            <div class="input-group">
-                <label>Full Name</label>
-                <input type="text" name="data[Name]" placeholder="Enter full name" class="input-field" required>
-            </div>
-
-            <div class="input-group">
-                <label>Contact Number</label>
-                <input type="tel" name="data[Phone]" placeholder="Enter phone number" class="input-field" required>
-            </div>
-
-            <div class="input-group">
-                <label>Planned Event Date</label>
-                <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
-            </div>
-
-            <button type="submit" class="btn-submit">Submit Reservation Request</button>
+    <!-- BOOKING FORM -->
+    <div class="form-wrapper">
+        <h3>Reserve Your Date</h3>
+        
+        <div class="field-group">
+            <label>Full Name</label>
+            <input type="text" name="data[Name]" placeholder="Your name" class="input-box" required>
         </div>
-    </section>
+
+        <div class="field-group">
+            <label>Contact Number</label>
+            <input type="tel" name="data[Phone]" placeholder="Your phone number" class="input-box" required>
+        </div>
+
+        <div class="field-group">
+            <label>Event Date</label>
+            <input type="date" name="data[Event_Date]" class="input-box" required style="color-scheme: dark;">
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Reservation</button>
+    </div>
 
 </form>
 
 <footer>
-    <div class="footer-logo">KEERTHI EVENTS</div>
-    <div class="footer-tag">Hyderabad • All India Service • Est. 2017</div>
+    <div class="footer-brand">KEERTHI EVENTS</div>
+    <div class="footer-text">EST. 2017 • ALL INDIA SERVICE</div>
 </footer>
 
-<div class="floating-actions">
-    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="action-circle ig">
+<div class="social-bar">
+    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="social-btn ig">
         <img src="https://img.icons8.com/color/48/instagram-new.png" width="26" alt="Instagram">
     </a>
-    <a href="https://wa.me/917893189877" target="_blank" class="action-circle wa">
+    <a href="https://wa.me/917893189877" target="_blank" class="social-btn wa">
         <img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="26" alt="WhatsApp">
     </a>
 </div>
 
 <script>
-    window.onload = function() {
-        setTimeout(() => {
-            document.getElementById('overlay').classList.add('active');
-            document.getElementById('social-popup').classList.add('active');
-        }, 9000);
-    };
-
-    function closePopup() {
-        document.getElementById('social-popup').classList.remove('active');
-        document.getElementById('overlay').classList.remove('active');
-    }
-
     document.getElementById('regForm').onsubmit = function(e) {
         e.preventDefault();
         fetch(this.action, { method: "POST", body: new FormData(this) })
         .then(() => {
-            alert("Thank you! Your event registration has been received.");
+            alert("Thank you! Your event inquiry has been received by Keerthi Events.");
             this.reset();
         })
-        .catch(() => alert("Registration received!"));
+        .catch(() => alert("Inquiry sent successfully!"));
     };
 </script>
 
