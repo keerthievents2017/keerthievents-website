@@ -12,13 +12,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --accent: #FF477E; 
-            --dark: #121212; 
-            --gold: #D4AF37; 
-            --whatsapp: #25D366; 
-            --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
-        }
+        :root { --accent: #FF477E; --dark: #121212; --gold: #D4AF37; --whatsapp: #25D366; --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
 
         body { 
@@ -57,7 +51,7 @@
 
         /* HERO */
         header { 
-            min-height: 50vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('teddy stage photo.jpg'); 
+            min-height: 50vh; background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)), url('teddy%20stage%20photo.jpg'); 
             background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px;
         }
         .brand-story { max-width: 800px; font-size: 14px; line-height: 1.8; opacity: 0.9; margin: 15px auto; }
@@ -104,7 +98,6 @@
             font-weight: 600; 
             text-align: center; 
             pointer-events: none; 
-            z-index: 3;
         }
         .catalog-item:has(input:checked) { 
             border-color: var(--gold); 
@@ -156,93 +149,94 @@
     
     <div class="catalog-container">
         <h2 style="font-family: 'Playfair Display'; text-align: center; color: var(--gold); margin-top: 10px;">Grand Theme Catalog</h2>
-        <p style="text-align: center; opacity: 0.6; font-size: 12px; margin-bottom: 25px;">Select themes for your event</p>
+        <p style="text-align: center; opacity: 0.6; font-size: 12px; margin-bottom: 25px;">Tap cards to select your dream event themes</p>
         
         <div class="catalog-grid">
             <!-- 1. Swan Wing Photo -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
-                <img src="swan wing photo.jpg" alt="Swan Wings Theme">
+                <img src="swan%20wing%20photo.jpg" alt="Swan Wings Theme">
                 <div class="label">SWAN & ANGEL WINGS</div>
             </label>
 
             <!-- 2. Castle Photo (Joanna) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
-                <img src="castle photo.jpg" alt="Princess Fairy Castle Theme">
+                <img src="castle%20photo.jpg" alt="Princess Theme">
                 <div class="label">FAIRY CASTLE</div>
             </label>
 
             <!-- 3. Teddy Stage Photo (Aarav) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Hot Air Balloon Sky">
-                <img src="teddy stage photo.jpg" alt="Teddy Stage Balloon Theme">
+                <img src="teddy%20stage%20photo.jpg" alt="Balloon Sky Theme">
                 <div class="label">BALLOON SKY VISTA</div>
             </label>
 
             <!-- 4. Donut Candyland Photo -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
-                <img src="donut photo.jpg" alt="Donut Candyland Theme">
+                <img src="donut%20photo.jpg" alt="Candyland Theme">
                 <div class="label">CANDYLAND CARNIVAL</div>
             </label>
 
-            <!-- 5. Surya Dev Candyland Video -->
+            <!-- 5. Candyland Walkthrough Video (Surya Dev) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Surya Dev Candyland Gala">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="Surya Dev candyland video.mp4" type="video/mp4">
+                    <source src="candyland-video.mp4" type="video/mp4">
                 </video>
                 <div class="label">SWEET CANDYLAND GALA</div>
             </label>
 
-            <!-- 6. Aarav Teddy Balloon Stage Video -->
+            <!-- 6. Teddy & Balloon Walkthrough Video (Aarav) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Aarav Teddy Balloon Stage">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="WhatsApp Video 2026-08-22 at 9.55.54 PM (1).mp4" type="video/mp4">
+                    <source src="teddy-video.mp4" type="video/mp4">
                 </video>
-                <div class="label">AARAV TEDDY BALLOON GALA</div>
+                <div class="label">TEDDY BALLOON GALA</div>
             </label>
 
-            <!-- 7. Raksha Underwater Realm Video -->
+            <!-- 7. Underwater Kingdom Video (Raksha) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="WhatsApp Video 2026-08-22 at 9.55.54 PM (2).mp4" type="video/mp4">
+                    <source src="underwater-video.mp4" type="video/mp4">
                 </video>
                 <div class="label">UNDERWATER REALM</div>
             </label>
 
-            <!-- 8. Michael Carnival & Carousel Video -->
+            <!-- 8. Grand Carnival & Carousel Walkway Video (Michael's Carnival) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Michael Grand Carnival">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="WhatsApp Video 2026-08-22 at 9.55.54 PM_2.mp4" type="video/mp4">
+                    <source src="carnival-video.mp4" type="video/mp4">
                 </video>
-                <div class="label">MICHAEL GRAND CARNIVAL</div>
+                <div class="label">GRAND CARNIVAL & CAROUSEL</div>
             </label>
 
-            <!-- 9. Mihira Butterfly & Flamingo Wonderland Video -->
+            <!-- 9. Butterfly & Flamingo Wonderland Video (Mihira) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Mihira Butterfly Wonderland">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="WhatsApp Video 2026-08-22 at 9.55.55 PM.mp4" type="video/mp4">
+                    <source src="wonderland-video.mp4" type="video/mp4">
                 </video>
-                <div class="label">MIHIRA BUTTERFLY WONDERLAND</div>
+                <div class="label">BUTTERFLY & FLAMINGO WONDERLAND</div>
             </label>
 
-            <!-- 10. Jaivik Jungle Safari Waterfall Video -->
+            <!-- 10. Jungle Safari Waterfall Video (Jaivik) -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Jaivik Jungle Safari Waterfall">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="WhatsApp Video 2026-08-22 at 9.55.56 PM.mp4" type="video/mp4">
+                    <source src="jungle-video.mp4" type="video/mp4">
                 </video>
-                <div class="label">JAIVIK JUNGLE SAFARI</div>
+                <div class="label">JUNGLE SAFARI WATERFALL</div>
             </label>
         </div>
     </div>
 
+    <!-- REGISTRATION FORM -->
     <div class="main-container">
         <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin-bottom: 20px; text-align: center;">Finalize Registration</h3>
         <input type="text" name="data[Name]" placeholder="Full Name" class="input-field" required>
@@ -252,12 +246,19 @@
     </div>
 </form>
 
+<section style="text-align: center; padding: 60px 20px;">
+    <h2 style="font-family: 'Playfair Display'; color: var(--gold); font-size: 20px;">Crafting unforgettable memories of your life.</h2>
+    <div style="margin-top: 30px; color: var(--gold); font-family: 'Playfair Display'; font-size: 1.1rem; letter-spacing: 3px;">KEERTHI EVENTS</div>
+    <div style="font-size: 10px; opacity: 0.5; margin-top: 8px; letter-spacing: 2px;">EST. 2017 | ALL INDIA SERVICE</div>
+</section>
+
 <div class="floating-social">
     <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="social-btn instagram"><img src="https://img.icons8.com/color/48/instagram-new.png" width="28" alt="Instagram"></a>
     <a href="https://wa.me/917893189877" target="_blank" class="social-btn whatsapp"><img src="https://img.icons8.com/color/48/whatsapp--v1.png" width="28" alt="WhatsApp"></a>
 </div>
 
 <script>
+    // Ensure mobile devices trigger autoplay properly
     document.addEventListener('DOMContentLoaded', () => {
         const videos = document.querySelectorAll('video');
         videos.forEach(video => {
