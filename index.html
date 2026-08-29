@@ -8,42 +8,49 @@
     <meta name="description" content="Keerthi Events - Premium Birthday Architects and Event Planners across India. Luxury themes, grand stage setups, floral designs, and complete party management.">
     <meta name="keywords" content="Keerthi Events, birthday event planner, luxury birthday themes, stage decor, carnival theme, jungle safari birthday, swan theme, Hyderabad India">
     <meta name="author" content="Keerthi Events">
-    <meta name="robots" content="index, follow">
 
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
         :root { 
             --accent: #FF477E; 
-            --dark: #0f0f11; 
+            --dark: #09090b;
+            --card-bg: rgba(22, 22, 28, 0.75);
             --gold: #D4AF37; 
-            --gold-light: #f3e5ab;
+            --gold-light: #faecd0;
+            --gold-gradient: linear-gradient(135deg, #faecd0 0%, #d4af37 50%, #997523 100%);
             --gold-glow: rgba(212, 175, 55, 0.35);
+            --border-glass: rgba(212, 175, 55, 0.22);
+            --text-main: #f5f5f7;
+            --text-muted: #a0a0b0;
             --whatsapp: #25D366; 
             --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
 
         body { 
-            font-family: 'Poppins', sans-serif; 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
             background-color: var(--dark);
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 71, 126, 0.05) 0%, transparent 50%),
-                url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+                radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212, 175, 55, 0.12), transparent 70%),
+                radial-gradient(circle at 10% 90%, rgba(255, 71, 126, 0.05), transparent 45%),
+                url("https://www.transparenttextures.com/patterns/dark-mosaic.png");
             background-attachment: fixed; 
-            color: #ffffff; 
+            color: var(--text-main); 
             overflow-x: hidden; 
+            line-height: 1.6;
         }
 
-        /* ENTRANCE SPLASH ANIMATION */
+        /* ENTRANCE ANIMATION */
         #site-entrance {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at center, #3d230d 0%, #140b04 100%);
             z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            animation: fadeOutMain 0.8s forwards 2.5s;
+            animation: fadeOutMain 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards 2.5s;
         }
         #site-entrance h1 {
             font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 8vw, 5rem);
@@ -56,126 +63,146 @@
 
         /* INSTAGRAM POPUP */
         #social-popup {
-            position: fixed; top: -150%; left: 50%; transform: translateX(-50%);
-            width: 320px; background: #18181e; border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 28px 22px; border-radius: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.8);
-            z-index: 10000; text-align: center; transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -45%);
+            width: 320px; background: #16161c; border: 1px solid var(--border-glass);
+            padding: 30px 24px; border-radius: 26px; box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            z-index: 10000; text-align: center; opacity: 0; visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        #social-popup.active { top: 50%; transform: translate(-50%, -50%); }
-        .overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9998; display: none; }
-        .overlay.active { display: block; }
+        #social-popup.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%); }
+        .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9998; opacity: 0; visibility: hidden; transition: 0.4s; }
+        .overlay.active { opacity: 1; visibility: visible; }
+        .popup-btn {
+            display: inline-block; width: 100%; padding: 13px; border-radius: 50px;
+            background: var(--insta); color: white; text-decoration: none; font-size: 13px; font-weight: 600;
+            letter-spacing: 1px; margin-top: 15px; box-shadow: 0 8px 20px rgba(220,39,67,0.3);
+        }
 
         /* NAVIGATION */
         nav { 
             padding: 16px 25px; display: flex; justify-content: space-between; align-items: center; 
-            background: rgba(15, 15, 17, 0.92); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; 
-            border-bottom: 1px solid rgba(212,175,55,0.25); 
+            background: rgba(9, 9, 11, 0.9); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; 
+            border-bottom: 1px solid var(--border-glass); 
         }
-        .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--gold); letter-spacing: 2px; }
-        .nav-status { font-size: 10px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.3); padding: 5px 12px; border-radius: 20px; }
+        .logo { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 800; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+        .nav-status { font-size: 10px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--border-glass); padding: 5px 12px; border-radius: 20px; }
 
         /* HERO HEADER */
         header { 
-            min-height: 52vh; background: linear-gradient(rgba(10,10,12,0.7), rgba(15,15,17,0.95)), url('teddy%20stage%20photo.jpg'); 
-            background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 45px 20px 25px;
+            min-height: 52vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 50px 20px 30px; position: relative;
         }
-        .hero-badge { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
-        header h1 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: clamp(1.8rem, 6vw, 2.8rem); line-height: 1.3; max-width: 900px; }
-        .brand-story { max-width: 800px; font-size: 13.5px; line-height: 1.8; opacity: 0.85; margin: 16px auto 0; font-weight: 300; }
+        .hero-badge { 
+            display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; 
+            color: var(--gold); margin-bottom: 14px; border: 1px solid var(--border-glass);
+            padding: 5px 14px; border-radius: 30px; background: rgba(212, 175, 55, 0.05); font-weight: 600;
+        }
+        header h1 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: clamp(1.8rem, 6vw, 3rem); line-height: 1.3; max-width: 900px; margin-bottom: 15px; }
+        .brand-story { max-width: 820px; font-size: 14px; line-height: 1.8; color: var(--text-muted); margin: 0 auto; font-weight: 300; }
         .highlight { color: var(--gold); font-weight: 600; text-transform: uppercase; }
 
         /* THEME CATALOG GRID */
-        .catalog-container { max-width: 1200px; margin: 25px auto 40px; padding: 0 16px; }
-        .catalog-title { text-align: center; margin-bottom: 25px; }
-        .catalog-title h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.2rem); }
-        .catalog-title p { opacity: 0.6; font-size: 12px; margin-top: 4px; letter-spacing: 1px; }
+        .catalog-container { max-width: 1220px; margin: 20px auto 40px; padding: 0 16px; }
+        .catalog-title { text-align: center; margin-bottom: 30px; }
+        .catalog-title h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.2rem); letter-spacing: 2px; }
+        .catalog-title p { color: var(--text-muted); font-size: 13px; margin-top: 5px; }
 
         .catalog-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 22px; 
+            gap: 24px; 
             justify-content: center;
         }
         .catalog-item { 
             position: relative; 
-            border-radius: 18px; 
+            border-radius: 20px; 
             overflow: hidden; 
-            border: 2px solid rgba(212, 175, 55, 0.22); 
+            border: 1px solid var(--border-glass); 
             cursor: pointer; 
-            background: #151518; 
-            height: 230px;
+            background: var(--card-bg); 
+            height: 240px;
             display: flex;
             flex-direction: column;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            justify-content: flex-end;
+            transition: all 0.35s ease;
+            backdrop-filter: blur(12px);
         }
-        .catalog-item:hover { transform: translateY(-4px); }
+        .catalog-item:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--gold);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 18px var(--gold-glow);
+        }
         .catalog-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            display: block; 
-            background: #0b0b0d;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; z-index: 1; transition: transform 0.6s ease;
+        }
+        .catalog-item:hover img { transform: scale(1.05); }
+        .card-scrim {
+            position: absolute; inset: 0; z-index: 2;
+            background: linear-gradient(180deg, rgba(9,9,11,0.05) 0%, rgba(9,9,11,0.45) 55%, rgba(9,9,11,0.95) 100%);
+        }
+        .card-content {
+            position: relative; z-index: 3; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;
+        }
+        .card-title {
+            font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: #fff;
+            letter-spacing: 1.5px; text-transform: uppercase;
+        }
+        .card-checkbox {
+            width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--gold);
+            display: flex; align-items: center; justify-content: center; transition: 0.3s;
+            background: rgba(0,0,0,0.4);
         }
         .catalog-item input { position: absolute; opacity: 0; }
         
-        .catalog-item .label { 
-            position: absolute; 
-            bottom: 0; 
-            width: 100%; 
-            background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 60%, transparent 100%); 
-            font-size: 11px; 
-            letter-spacing: 1.5px;
-            padding: 22px 8px 10px; 
-            color: var(--gold); 
-            font-weight: 600; 
-            text-align: center; 
-            pointer-events: none; 
-            z-index: 3;
-            transition: 0.3s;
-        }
-        
+        /* Selected State */
         .catalog-item:has(input:checked) { 
             border-color: var(--gold); 
             box-shadow: 0 0 20px var(--gold-glow); 
-            transform: scale(1.02);
         }
-        .catalog-item:has(input:checked) .label { 
+        .catalog-item:has(input:checked) .card-checkbox { 
             background: var(--gold); 
-            color: #000; 
-            font-weight: 700; 
+        }
+        .catalog-item:has(input:checked) .card-checkbox::after {
+            content: "✓"; color: #09090b; font-size: 13px; font-weight: 900;
+        }
+        .catalog-item:has(input:checked) .card-title { 
+            color: var(--gold); 
         }
 
         /* REGISTRATION FORM */
         .main-container { 
-            max-width: 720px; margin: 40px auto 60px; background: rgba(255, 255, 255, 0.03); 
-            padding: 35px 25px; border-radius: 28px; border: 1px solid rgba(212, 175, 55, 0.2); 
-            width: 92%; backdrop-filter: blur(20px); box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+            max-width: 720px; margin: 40px auto 70px; background: rgba(18, 18, 24, 0.7); 
+            padding: 38px 28px; border-radius: 26px; border: 1px solid var(--border-glass); 
+            width: 92%; backdrop-filter: blur(25px); box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
-        .form-heading { text-align: center; margin-bottom: 22px; }
-        .form-heading h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 22px; }
-        .form-heading p { font-size: 12px; opacity: 0.6; margin-top: 4px; }
+        .form-heading { text-align: center; margin-bottom: 24px; }
+        .form-heading h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 22px; letter-spacing: 2px; }
+        .form-heading p { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
         
+        .input-group { margin-bottom: 16px; text-align: left; }
+        .input-group label { display: block; font-size: 11px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; font-weight: 600; }
         .input-field { 
-            width: 100%; padding: 15px; margin-bottom: 14px; border-radius: 12px; 
-            border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); 
+            width: 100%; padding: 15px 18px; border-radius: 12px; 
+            border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); 
             color: #ffffff; font-family: inherit; font-size: 14px; outline: none; transition: 0.3s; 
         }
-        .input-field:focus { border-color: var(--gold); background: rgba(255,255,255,0.07); box-shadow: 0 0 10px var(--gold-glow); }
+        .input-field:focus { border-color: var(--gold); background: rgba(255,255,255,0.06); box-shadow: 0 0 12px var(--gold-glow); }
         .btn-register { 
-            background: linear-gradient(135deg, #f7e1ad 0%, #d4af37 50%, #aa8010 100%); 
-            color: #0d0d0f; padding: 16px; border: none; width: 100%; border-radius: 12px; 
-            font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; 
-            cursor: pointer; transition: 0.3s; margin-top: 5px; 
+            background: var(--gold-gradient); 
+            color: #09090b; padding: 16px; border: none; width: 100%; border-radius: 12px; 
+            font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; 
+            cursor: pointer; transition: all 0.3s ease; margin-top: 8px; box-shadow: 0 10px 25px rgba(212,175,55,0.3);
         }
-        .btn-register:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--gold-glow); }
+        .btn-register:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(212,175,55,0.5); }
 
         /* FOOTER */
-        footer { text-align: center; padding: 30px 20px 80px; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 18px; letter-spacing: 3px; }
-        .footer-tag { font-size: 10px; opacity: 0.5; margin-top: 6px; letter-spacing: 2px; }
+        footer { text-align: center; padding: 35px 20px 80px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .footer-brand { font-family: 'Cinzel', serif; color: var(--gold); font-size: 18px; letter-spacing: 3px; font-weight: 700; margin-bottom: 6px; }
+        .footer-tag { font-size: 11px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
 
         /* FLOATING SOCIAL BAR */
-        .floating-social { position: fixed; bottom: 22px; right: 22px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
+        .floating-social { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
         .social-btn { 
             width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
             box-shadow: 0 6px 18px rgba(0,0,0,0.6); text-decoration: none; transition: transform 0.2s; 
@@ -196,9 +223,9 @@
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 <div id="social-popup">
     <img src="https://img.icons8.com/color/96/instagram-new.png" width="55" alt="Instagram">
-    <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin: 10px 0 5px;">Follow @keerthi_events_</h3>
-    <p style="font-size: 12px; opacity: 0.7; margin-bottom: 15px;">Discover our newest luxury setups and backstage reels.</p>
-    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" style="display:inline-block; padding: 12px; background: var(--insta); color: white; text-decoration: none; border-radius: 50px; width: 100%; font-weight: 600; font-size: 13px;">Follow Now</a>
+    <h3 style="font-family: 'Cinzel', serif; font-size: 17px; color: var(--gold); margin: 10px 0 5px;">Follow @keerthi_events_</h3>
+    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">Discover our newest luxury setups and backstage reels.</p>
+    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="popup-btn">Follow Now</a>
     <p onclick="closePopup()" style="margin-top: 14px; font-size: 11px; cursor: pointer; color: #888;">Dismiss</p>
 </div>
 
@@ -228,56 +255,88 @@
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
                 <img src="swan%20wing%20photo.jpg" alt="Swan Wings Theme" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80'">
-                <div class="label">SWAN & ANGEL WINGS</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Swan & Angel Wings</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
 
             <!-- 2. Princess Fairy Castle -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
                 <img src="castle%20photo.jpg" alt="Princess Theme" onerror="this.src='https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=600&q=80'">
-                <div class="label">FAIRY CASTLE</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Fairy Castle</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
 
             <!-- 3. Balloon Sky Vista -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Hot Air Balloon Sky">
                 <img src="teddy%20stage%20photo.jpg" alt="Balloon Theme" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'">
-                <div class="label">BALLOON SKY VISTA</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Balloon Sky Vista</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
 
             <!-- 4. Candyland Carnival -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
                 <img src="donut%20photo.jpg" alt="Candyland Theme" onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80'">
-                <div class="label">CANDYLAND CARNIVAL</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Candyland Carnival</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
 
             <!-- 5. Underwater Realm -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
                 <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Underwater Theme">
-                <div class="label">UNDERWATER REALM</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Underwater Realm</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
 
             <!-- 6. Michael Grand Carnival -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Michael Grand Carnival">
                 <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="Grand Carnival Theme">
-                <div class="label">GRAND CARNIVAL & CAROUSEL</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Grand Carnival</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
 
             <!-- 7. Butterfly Wonderland -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Wonderland">
                 <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Butterfly Theme">
-                <div class="label">BUTTERFLY WONDERLAND</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Butterfly Wonderland</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
 
             <!-- 8. Jungle Safari Waterfall -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
                 <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=600&q=80" alt="Jungle Safari Theme">
-                <div class="label">JUNGLE WATERFALL</div>
+                <div class="card-scrim"></div>
+                <div class="card-content">
+                    <span class="card-title">Jungle Waterfall</span>
+                    <div class="card-checkbox"></div>
+                </div>
             </label>
         </div>
     </div>
@@ -285,12 +344,25 @@
     <!-- REGISTRATION FORM -->
     <div class="main-container">
         <div class="form-heading">
-            <h3>Finalize Registration</h3>
+            <h3>Reserve Your Date</h3>
             <p>Fill out the form below to lock your date and themes with us</p>
         </div>
-        <input type="text" name="data[Name]" placeholder="Full Name" class="input-field" required>
-        <input type="tel" name="data[Phone]" placeholder="Contact Number" class="input-field" required>
-        <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" name="data[Name]" placeholder="Enter full name" class="input-field" required>
+        </div>
+
+        <div class="input-group">
+            <label>Contact Number</label>
+            <input type="tel" name="data[Phone]" placeholder="Contact number" class="input-field" required>
+        </div>
+
+        <div class="input-group">
+            <label>Event Date</label>
+            <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
+        </div>
+
         <button type="submit" class="btn-register">REGISTER NOW</button>
     </div>
 </form>
