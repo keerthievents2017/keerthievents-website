@@ -10,6 +10,7 @@
     <meta name="author" content="Keerthi Events">
     <meta name="robots" content="index, follow">
 
+    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -38,7 +39,26 @@
             overflow-x: hidden; 
         }
 
-        /* NAVIGATION */
+        /* 1. ENTRANCE SCREEN (Luxury Brown & Gold with Pointer Events Protection) */
+        #site-entrance {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, #3d230d 0%, #140b04 100%);
+            z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            animation: fadeOutSplash 0.8s forwards 2.3s;
+        }
+        #site-entrance h1 {
+            font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 8vw, 5rem);
+            font-weight: 900; color: var(--gold); letter-spacing: 6px; text-transform: uppercase; text-align: center;
+            text-shadow: 0 0 25px var(--gold-glow);
+            animation: zoomLuxe 2s ease-out forwards;
+        }
+        @keyframes zoomLuxe { 0% { transform: scale(0.92); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        @keyframes fadeOutSplash { 
+            0% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; pointer-events: none; } 
+        }
+
+        /* 2. NAVIGATION */
         nav { 
             padding: 16px 25px; display: flex; justify-content: space-between; align-items: center; 
             background: rgba(15, 15, 17, 0.95); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; 
@@ -47,9 +67,9 @@
         .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--gold); letter-spacing: 2px; }
         .nav-status { font-size: 10px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.3); padding: 5px 12px; border-radius: 20px; }
 
-        /* HERO HEADER */
+        /* 3. HERO SECTION */
         header { 
-            min-height: 50vh; background: linear-gradient(rgba(10,10,12,0.75), rgba(15,15,17,0.95)), url('teddy%20stage%20photo.jpg'); 
+            min-height: 52vh; background: linear-gradient(rgba(10,10,12,0.75), rgba(15,15,17,0.95)), url('teddy%20stage%20photo.jpg'); 
             background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 50px 20px 30px;
         }
         .hero-badge { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
@@ -57,7 +77,7 @@
         .brand-story { max-width: 800px; font-size: 14px; line-height: 1.8; opacity: 0.9; margin: 16px auto 0; font-weight: 300; }
         .highlight { color: var(--gold); font-weight: 600; text-transform: uppercase; }
 
-        /* THEME CATALOG GRID */
+        /* 4. THEME CATALOG GRID */
         .catalog-container { max-width: 1200px; margin: 30px auto 40px; padding: 0 16px; }
         .catalog-title { text-align: center; margin-bottom: 25px; }
         .catalog-title h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.2rem); }
@@ -118,7 +138,7 @@
             font-weight: 700; 
         }
 
-        /* REGISTRATION FORM */
+        /* 5. REGISTRATION FORM */
         .main-container { 
             max-width: 720px; margin: 40px auto 60px; background: rgba(255, 255, 255, 0.03); 
             padding: 35px 25px; border-radius: 28px; border: 1px solid rgba(212, 175, 55, 0.25); 
@@ -142,12 +162,12 @@
         }
         .btn-register:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--gold-glow); }
 
-        /* FOOTER */
+        /* 6. FOOTER */
         footer { text-align: center; padding: 30px 20px 80px; border-top: 1px solid rgba(255,255,255,0.06); }
         .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 18px; letter-spacing: 3px; }
         .footer-tag { font-size: 10px; opacity: 0.5; margin-top: 6px; letter-spacing: 2px; }
 
-        /* FLOATING SOCIALS */
+        /* 7. FLOATING SOCIAL BUTTONS */
         .floating-social { position: fixed; bottom: 22px; right: 22px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
         .social-btn { 
             width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
@@ -157,7 +177,7 @@
         .whatsapp { background: var(--whatsapp); }
         .instagram { background: #ffffff; }
 
-        /* POPUP */
+        /* 8. INSTAGRAM POPUP */
         #social-popup {
             position: fixed; top: -150%; left: 50%; transform: translateX(-50%);
             width: 320px; background: #18181e; border: 1px solid rgba(212, 175, 55, 0.3);
@@ -171,7 +191,12 @@
 </head>
 <body>
 
-<!-- INSTAGRAM POPUP -->
+<!-- ENTRANCE GRAPHIC OVERLAY -->
+<div id="site-entrance">
+    <h1>KEERTHI<br>EVENTS</h1>
+</div>
+
+<!-- INSTAGRAM POPUP OVERLAY -->
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 <div id="social-popup">
     <img src="https://img.icons8.com/color/96/instagram-new.png" width="55" alt="Instagram">
@@ -181,19 +206,22 @@
     <p onclick="closePopup()" style="margin-top: 14px; font-size: 11px; cursor: pointer; color: #888;">Dismiss</p>
 </div>
 
+<!-- NAVIGATION -->
 <nav>
     <div class="logo">KEERTHI EVENTS</div>
     <div class="nav-status">All India Service</div>
 </nav>
 
+<!-- HERO HEADER -->
 <header>
     <div class="hero-badge">Premium Birthday Architects</div>
     <h1>"Transforming Moments into Masterpieces."</h1>
     <p class="brand-story">
-        At <span class="highlight">KEERTHI EVENTS</span>, we don't just organize functions; we craft experiences. From delicate fresh floral arrangements to grand themed galas across India, <span class="highlight">WE HANDLE THE MAGIC.</span>
+        At <span class="highlight">KEERTHI EVENTS</span>, we don't just organize functions; we craft experiences. From the delicate touch of fresh floral arrangements to the grand spectacle of themed birthday galas, we bring your vision to life with precision and passion. Serving clients across the heart of India, we ensure that while you enjoy the moment, <span class="highlight">WE HANDLE THE MAGIC.</span>
     </p>
 </header>
 
+<!-- THEME CATALOG & REGISTRATION FORM -->
 <form id="regForm" action="https://sheetdb.io/api/v1/l06xavka0btnf" method="POST">
     
     <div class="catalog-container">
@@ -311,11 +339,13 @@
     </div>
 </form>
 
+<!-- FOOTER -->
 <footer>
     <div class="footer-brand">KEERTHI EVENTS</div>
     <div class="footer-tag">EST. 2017 • ALL INDIA SERVICE</div>
 </footer>
 
+<!-- FLOATING SOCIALS -->
 <div class="floating-social">
     <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="social-btn instagram">
         <img src="https://img.icons8.com/color/48/instagram-new.png" width="28" alt="Instagram">
@@ -325,7 +355,9 @@
     </a>
 </div>
 
+<!-- SCRIPTS -->
 <script>
+    // Ensure mobile silent autoplay
     document.addEventListener('DOMContentLoaded', () => {
         const videos = document.querySelectorAll('video');
         videos.forEach(v => {
@@ -334,6 +366,7 @@
         });
     });
 
+    // Instagram Popup Timer
     window.onload = function() { 
         setTimeout(() => { 
             document.getElementById('overlay').classList.add('active'); 
@@ -346,6 +379,7 @@
         document.getElementById('overlay').classList.remove('active'); 
     }
 
+    // Form Submission to SheetDB
     document.getElementById('regForm').onsubmit = function(e) {
         e.preventDefault();
         fetch(this.action, { method: "POST", body: new FormData(this) })
