@@ -8,204 +8,147 @@
     <meta name="description" content="Keerthi Events - Premium Birthday Architects and Event Planners across India. Luxury themes, grand stage setups, floral designs, and complete party management.">
     <meta name="keywords" content="Keerthi Events, birthday event planner, luxury birthday themes, stage decor, carnival theme, jungle safari birthday, swan theme, Hyderabad India">
     <meta name="author" content="Keerthi Events">
+    <meta name="robots" content="index, follow">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root { 
             --accent: #FF477E; 
-            --dark: #070709;
-            --card-bg: rgba(20, 18, 24, 0.9);
+            --dark: #0f0f11; 
             --gold: #D4AF37; 
             --gold-light: #faecd0;
-            --gold-gradient: linear-gradient(135deg, #faecd0 0%, #d4af37 50%, #997523 100%);
             --gold-glow: rgba(212, 175, 55, 0.35);
-            --border-glass: rgba(212, 175, 55, 0.25);
-            --text-main: #f5f5f7;
-            --text-muted: #a0a0b0;
             --whatsapp: #25D366; 
             --insta: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); 
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
 
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
+            font-family: 'Poppins', sans-serif; 
             background-color: var(--dark);
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.14) 0%, transparent 45%),
-                radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 50% 70%, rgba(212, 175, 55, 0.09) 0%, transparent 50%),
-                radial-gradient(circle at 20% 90%, rgba(255, 71, 126, 0.07) 0%, transparent 40%),
-                linear-gradient(180deg, #070709 0%, #0d0c12 50%, #070709 100%);
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 71, 126, 0.05) 0%, transparent 50%),
+                url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
             background-attachment: fixed; 
-            color: var(--text-main); 
+            color: #ffffff; 
             overflow-x: hidden; 
-            line-height: 1.6;
-        }
-
-        /* ENTRANCE SPLASH */
-        #site-entrance {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #2e1a0a 0%, #080604 100%);
-            z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center;
-            animation: fadeOutMain 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards 2.5s;
-        }
-        #site-entrance h1 {
-            font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 8vw, 5rem);
-            font-weight: 900; color: var(--gold); letter-spacing: 6px; text-transform: uppercase; text-align: center;
-            text-shadow: 0 0 25px var(--gold-glow);
-            animation: zoomLuxe 2.2s ease-out forwards;
-        }
-        @keyframes zoomLuxe { 0% { transform: scale(0.92); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
-        @keyframes fadeOutMain { 100% { opacity: 0; visibility: hidden; pointer-events: none; } }
-
-        /* INSTAGRAM POPUP */
-        #social-popup {
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -45%);
-            width: 320px; background: #16161c; border: 1px solid var(--border-glass);
-            padding: 30px 24px; border-radius: 26px; box-shadow: 0 30px 60px rgba(0,0,0,0.85);
-            z-index: 10000; text-align: center; opacity: 0; visibility: hidden;
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        #social-popup.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%); }
-        .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9998; opacity: 0; visibility: hidden; transition: 0.4s; }
-        .overlay.active { opacity: 1; visibility: visible; }
-        .popup-btn {
-            display: inline-block; width: 100%; padding: 13px; border-radius: 50px;
-            background: var(--insta); color: white; text-decoration: none; font-size: 13px; font-weight: 600;
-            letter-spacing: 1px; margin-top: 15px; box-shadow: 0 8px 20px rgba(220,39,67,0.3);
         }
 
         /* NAVIGATION */
         nav { 
             padding: 16px 25px; display: flex; justify-content: space-between; align-items: center; 
-            background: rgba(7, 7, 9, 0.85); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; 
-            border-bottom: 1px solid var(--border-glass); 
+            background: rgba(15, 15, 17, 0.95); backdrop-filter: blur(15px); position: sticky; top: 0; z-index: 100; 
+            border-bottom: 1px solid rgba(212,175,55,0.25); 
         }
-        .logo { font-family: 'Cinzel', serif; font-size: 20px; font-weight: 800; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
-        .nav-status { font-size: 10px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--border-glass); padding: 5px 12px; border-radius: 20px; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: var(--gold); letter-spacing: 2px; }
+        .nav-status { font-size: 10px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(212,175,55,0.3); padding: 5px 12px; border-radius: 20px; }
 
         /* HERO HEADER */
         header { 
-            min-height: 52vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center; padding: 50px 20px 30px; position: relative;
+            min-height: 50vh; background: linear-gradient(rgba(10,10,12,0.75), rgba(15,15,17,0.95)), url('teddy%20stage%20photo.jpg'); 
+            background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 50px 20px 30px;
         }
-        .hero-badge { 
-            display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 3px; 
-            color: var(--gold); margin-bottom: 14px; border: 1px solid var(--border-glass);
-            padding: 5px 14px; border-radius: 30px; background: rgba(212, 175, 55, 0.08); font-weight: 600;
-        }
-        header h1 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: clamp(1.8rem, 6vw, 3rem); line-height: 1.3; max-width: 900px; margin-bottom: 15px; }
-        .brand-story { max-width: 820px; font-size: 14px; line-height: 1.8; color: var(--text-muted); margin: 0 auto; font-weight: 300; }
+        .hero-badge { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; font-weight: 600; }
+        header h1 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: clamp(1.8rem, 6vw, 2.8rem); line-height: 1.3; max-width: 900px; }
+        .brand-story { max-width: 800px; font-size: 14px; line-height: 1.8; opacity: 0.9; margin: 16px auto 0; font-weight: 300; }
         .highlight { color: var(--gold); font-weight: 600; text-transform: uppercase; }
 
         /* THEME CATALOG GRID */
-        .catalog-container { max-width: 1220px; margin: 20px auto 40px; padding: 0 16px; }
-        .catalog-title { text-align: center; margin-bottom: 30px; }
-        .catalog-title h2 { font-family: 'Cinzel', serif; color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.2rem); letter-spacing: 2px; }
-        .catalog-title p { color: var(--text-muted); font-size: 13px; margin-top: 5px; }
+        .catalog-container { max-width: 1200px; margin: 30px auto 40px; padding: 0 16px; }
+        .catalog-title { text-align: center; margin-bottom: 25px; }
+        .catalog-title h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: clamp(1.5rem, 4vw, 2.2rem); }
+        .catalog-title p { opacity: 0.6; font-size: 12px; margin-top: 4px; letter-spacing: 1px; }
 
         .catalog-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-            gap: 24px; 
+            gap: 22px; 
             justify-content: center;
         }
         .catalog-item { 
             position: relative; 
-            border-radius: 20px; 
+            border-radius: 18px; 
             overflow: hidden; 
-            border: 1px solid var(--border-glass); 
+            border: 2px solid rgba(212, 175, 55, 0.25); 
             cursor: pointer; 
-            background: var(--card-bg); 
-            height: 240px;
+            background: #151518; 
+            height: 230px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            transition: all 0.35s ease;
-            backdrop-filter: blur(14px);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
         }
-        .catalog-item:hover { 
-            transform: translateY(-5px); 
-            border-color: var(--gold);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.7), 0 0 20px var(--gold-glow);
-        }
+        .catalog-item:hover { transform: translateY(-4px); }
         .catalog-item img, .catalog-item video { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            object-fit: cover; z-index: 1; transition: transform 0.6s ease;
-            background: #000;
-        }
-        .catalog-item:hover img, .catalog-item:hover video { transform: scale(1.05); }
-        .card-scrim {
-            position: absolute; inset: 0; z-index: 2;
-            background: linear-gradient(180deg, rgba(7,7,9,0.05) 0%, rgba(7,7,9,0.45) 55%, rgba(7,7,9,0.95) 100%);
-        }
-        .card-content {
-            position: relative; z-index: 3; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center;
-        }
-        .card-title {
-            font-family: 'Cinzel', serif; font-size: 13px; font-weight: 700; color: #fff;
-            letter-spacing: 1.5px; text-transform: uppercase;
-        }
-        .card-checkbox {
-            width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--gold);
-            display: flex; align-items: center; justify-content: center; transition: 0.3s;
-            background: rgba(0,0,0,0.5);
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            background: #0b0b0d;
         }
         .catalog-item input { position: absolute; opacity: 0; }
         
-        /* Selected State */
+        .catalog-item .label { 
+            position: absolute; 
+            bottom: 0; 
+            width: 100%; 
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 60%, transparent 100%); 
+            font-size: 11px; 
+            letter-spacing: 1.5px;
+            padding: 22px 8px 10px; 
+            color: var(--gold); 
+            font-weight: 600; 
+            text-align: center; 
+            pointer-events: none; 
+            z-index: 3;
+            transition: 0.3s;
+        }
+        
         .catalog-item:has(input:checked) { 
             border-color: var(--gold); 
-            box-shadow: 0 0 22px var(--gold-glow); 
+            box-shadow: 0 0 20px var(--gold-glow); 
+            transform: scale(1.02);
         }
-        .catalog-item:has(input:checked) .card-checkbox { 
+        .catalog-item:has(input:checked) .label { 
             background: var(--gold); 
-        }
-        .catalog-item:has(input:checked) .card-checkbox::after {
-            content: "✓"; color: #070709; font-size: 13px; font-weight: 900;
-        }
-        .catalog-item:has(input:checked) .card-title { 
-            color: var(--gold); 
+            color: #000; 
+            font-weight: 700; 
         }
 
         /* REGISTRATION FORM */
         .main-container { 
-            max-width: 720px; margin: 40px auto 70px; background: rgba(16, 15, 22, 0.85); 
-            padding: 38px 28px; border-radius: 26px; border: 1px solid var(--border-glass); 
-            width: 92%; backdrop-filter: blur(25px); box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            max-width: 720px; margin: 40px auto 60px; background: rgba(255, 255, 255, 0.03); 
+            padding: 35px 25px; border-radius: 28px; border: 1px solid rgba(212, 175, 55, 0.25); 
+            width: 92%; backdrop-filter: blur(20px); box-shadow: 0 20px 45px rgba(0,0,0,0.5);
         }
-        .form-heading { text-align: center; margin-bottom: 24px; }
-        .form-heading h3 { font-family: 'Cinzel', serif; color: var(--gold); font-size: 22px; letter-spacing: 2px; }
-        .form-heading p { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+        .form-heading { text-align: center; margin-bottom: 22px; }
+        .form-heading h3 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 22px; }
+        .form-heading p { font-size: 12px; opacity: 0.6; margin-top: 4px; }
         
-        .input-group { margin-bottom: 16px; text-align: left; }
-        .input-group label { display: block; font-size: 11px; letter-spacing: 1px; color: var(--gold); text-transform: uppercase; margin-bottom: 6px; font-weight: 600; }
         .input-field { 
-            width: 100%; padding: 15px 18px; border-radius: 12px; 
+            width: 100%; padding: 15px; margin-bottom: 14px; border-radius: 12px; 
             border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); 
             color: #ffffff; font-family: inherit; font-size: 14px; outline: none; transition: 0.3s; 
         }
-        .input-field:focus { border-color: var(--gold); background: rgba(255,255,255,0.08); box-shadow: 0 0 12px var(--gold-glow); }
+        .input-field:focus { border-color: var(--gold); background: rgba(255,255,255,0.07); box-shadow: 0 0 10px var(--gold-glow); }
         .btn-register { 
-            background: var(--gold-gradient); 
-            color: #070709; padding: 16px; border: none; width: 100%; border-radius: 12px; 
-            font-size: 14px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; 
-            cursor: pointer; transition: all 0.3s ease; margin-top: 8px; box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+            background: linear-gradient(135deg, #f7e1ad 0%, #d4af37 50%, #aa8010 100%); 
+            color: #0d0d0f; padding: 16px; border: none; width: 100%; border-radius: 12px; 
+            font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; 
+            cursor: pointer; transition: 0.3s; margin-top: 5px; 
         }
-        .btn-register:hover { transform: translateY(-2px); box-shadow: 0 15px 30px rgba(212,175,55,0.5); }
+        .btn-register:hover { transform: translateY(-2px); box-shadow: 0 8px 20px var(--gold-glow); }
 
         /* FOOTER */
-        footer { text-align: center; padding: 35px 20px 80px; border-top: 1px solid rgba(255,255,255,0.06); }
-        .footer-brand { font-family: 'Cinzel', serif; color: var(--gold); font-size: 18px; letter-spacing: 3px; font-weight: 700; margin-bottom: 6px; }
-        .footer-tag { font-size: 11px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        footer { text-align: center; padding: 30px 20px 80px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 18px; letter-spacing: 3px; }
+        .footer-tag { font-size: 10px; opacity: 0.5; margin-top: 6px; letter-spacing: 2px; }
 
-        /* FLOATING SOCIAL BAR */
-        .floating-social { position: fixed; bottom: 24px; right: 24px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
+        /* FLOATING SOCIALS */
+        .floating-social { position: fixed; bottom: 22px; right: 22px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
         .social-btn { 
             width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
             box-shadow: 0 6px 18px rgba(0,0,0,0.6); text-decoration: none; transition: transform 0.2s; 
@@ -213,22 +156,28 @@
         .social-btn:hover { transform: scale(1.1); }
         .whatsapp { background: var(--whatsapp); }
         .instagram { background: #ffffff; }
+
+        /* POPUP */
+        #social-popup {
+            position: fixed; top: -150%; left: 50%; transform: translateX(-50%);
+            width: 320px; background: #18181e; border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 28px 22px; border-radius: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+            z-index: 10000; text-align: center; transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        #social-popup.active { top: 50%; transform: translate(-50%, -50%); }
+        .overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 9998; display: none; }
+        .overlay.active { display: block; }
     </style>
 </head>
 <body>
-
-<!-- ENTRANCE OVERLAY -->
-<div id="site-entrance">
-    <h1>KEERTHI<br>EVENTS</h1>
-</div>
 
 <!-- INSTAGRAM POPUP -->
 <div class="overlay" id="overlay" onclick="closePopup()"></div>
 <div id="social-popup">
     <img src="https://img.icons8.com/color/96/instagram-new.png" width="55" alt="Instagram">
-    <h3 style="font-family: 'Cinzel', serif; font-size: 17px; color: var(--gold); margin: 10px 0 5px;">Follow @keerthi_events_</h3>
-    <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 15px;">Discover our newest luxury setups and backstage reels.</p>
-    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" class="popup-btn">Follow Now</a>
+    <h3 style="font-family: 'Playfair Display'; color: var(--gold); margin: 10px 0 5px;">Follow @keerthi_events_</h3>
+    <p style="font-size: 12px; opacity: 0.7; margin-bottom: 15px;">Discover our newest luxury setups and backstage reels.</p>
+    <a href="https://www.instagram.com/keerthi_events_/" target="_blank" style="display:inline-block; padding: 12px; background: var(--insta); color: white; text-decoration: none; border-radius: 50px; width: 100%; font-weight: 600; font-size: 13px;">Follow Now</a>
     <p onclick="closePopup()" style="margin-top: 14px; font-size: 11px; cursor: pointer; color: #888;">Dismiss</p>
 </div>
 
@@ -241,7 +190,7 @@
     <div class="hero-badge">Premium Birthday Architects</div>
     <h1>"Transforming Moments into Masterpieces."</h1>
     <p class="brand-story">
-        At <span class="highlight">KEERTHI EVENTS</span>, we don't just organize functions; we craft experiences. From the delicate touch of fresh floral arrangements to the grand spectacle of themed birthday galas, we bring your vision to life with precision and passion. Serving clients across the heart of India, we ensure that while you enjoy the moment, <span class="highlight">WE HANDLE THE MAGIC.</span>
+        At <span class="highlight">KEERTHI EVENTS</span>, we don't just organize functions; we craft experiences. From delicate fresh floral arrangements to grand themed galas across India, <span class="highlight">WE HANDLE THE MAGIC.</span>
     </p>
 </header>
 
@@ -257,101 +206,89 @@
             <!-- 1. Swan Wings Image -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
-                <img src="swan.jpg" alt="Swan Wings Theme">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Swan & Angel Wings</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <img src="swan%20wing%20photo.jpg" alt="Swan Wings Theme">
+                <div class="label">SWAN & ANGEL WINGS</div>
             </label>
 
             <!-- 2. Joanna Fairy Castle Image -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
-                <img src="castle.jpg" alt="Princess Theme">
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Fairy Castle</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <img src="castle%20photo.jpg" alt="Princess Theme">
+                <div class="label">FAIRY CASTLE</div>
             </label>
 
-            <!-- 3. Aarav Hot Air Balloon & Teddy Video -->
+            <!-- 3. Aarav Hot Air Balloon & Teddy Stage Image -->
             <label class="catalog-item">
-                <input type="checkbox" name="data[Custom_Theme]" value="Balloon Sky Vista">
-                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="aarav-balloon.mp4" type="video/mp4">
-                </video>
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Balloon Sky Vista</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <input type="checkbox" name="data[Custom_Theme]" value="Hot Air Balloon Sky">
+                <img src="teddy%20stage%20photo.jpg" alt="Balloon Theme">
+                <div class="label">BALLOON SKY VISTA</div>
             </label>
 
-            <!-- 4. Surya Dev Sweet Candyland Video -->
+            <!-- 4. Surya Dev Candyland Image -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
-                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
-                    <source src="suryadev-candyland.mp4" type="video/mp4">
-                </video>
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Candyland Carnival</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <img src="donut%20photo.jpg" alt="Candyland Theme">
+                <div class="label">CANDYLAND CARNIVAL</div>
             </label>
 
-            <!-- 5. Raksha Underwater Realm Video -->
+            <!-- 5. Surya Dev Candyland Video -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Surya Dev Candyland Gala">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="Surya%20Dev%20candyland%20video.mp4" type="video/mp4">
+                    <source src="suryadev-candyland.mp4" type="video/mp4">
+                </video>
+                <div class="label">SWEET CANDYLAND GALA</div>
+            </label>
+
+            <!-- 6. Aarav Teddy Balloon Video -->
+            <label class="catalog-item">
+                <input type="checkbox" name="data[Custom_Theme]" value="Aarav Balloon Stage">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="WhatsApp%20Video%202026-08-22%20at%209.55.54%20PM%20(1).mp4" type="video/mp4">
+                    <source src="aarav-balloon.mp4" type="video/mp4">
+                </video>
+                <div class="label">AARAV TEDDY BALLOON STAGE</div>
+            </label>
+
+            <!-- 7. Raksha Underwater Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="WhatsApp%20Video%202026-08-22%20at%209.55.54%20PM%20(2).mp4" type="video/mp4">
                     <source src="raksha-underwater.mp4" type="video/mp4">
                 </video>
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Underwater Realm</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <div class="label">UNDERWATER REALM</div>
             </label>
 
-            <!-- 6. Michael Grand Carnival Video -->
+            <!-- 8. Michael Carnival Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Michael Grand Carnival">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="WhatsApp%20Video%202026-08-22%20at%209.55.54%20PM.mp4" type="video/mp4">
                     <source src="michael-carnival.mp4" type="video/mp4">
                 </video>
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Grand Carnival</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <div class="label">GRAND CARNIVAL & CAROUSEL</div>
             </label>
 
-            <!-- 7. Mihira Butterfly Wonderland Video -->
+            <!-- 9. Mihira Butterfly Wonderland Video -->
             <label class="catalog-item">
-                <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Wonderland">
+                <input type="checkbox" name="data[Custom_Theme]" value="Mihira Butterfly Wonderland">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="WhatsApp%20Video%202026-08-22%20at%209.55.55%20PM.mp4" type="video/mp4">
                     <source src="mihira-butterfly.mp4" type="video/mp4">
                 </video>
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Butterfly Wonderland</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <div class="label">BUTTERFLY WONDERLAND</div>
             </label>
 
-            <!-- 8. Jaivik Jungle Safari Waterfall Video -->
+            <!-- 10. Jaivik Jungle Waterfall Video -->
             <label class="catalog-item">
-                <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
+                <input type="checkbox" name="data[Custom_Theme]" value="Jaivik Jungle Waterfall">
                 <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="WhatsApp%20Video%202026-08-22%20at%209.55.56%20PM.mp4" type="video/mp4">
                     <source src="jaivik-jungle.mp4" type="video/mp4">
                 </video>
-                <div class="card-scrim"></div>
-                <div class="card-content">
-                    <span class="card-title">Jungle Waterfall</span>
-                    <div class="card-checkbox"></div>
-                </div>
+                <div class="label">JUNGLE WATERFALL</div>
             </label>
         </div>
     </div>
@@ -359,25 +296,12 @@
     <!-- REGISTRATION FORM -->
     <div class="main-container">
         <div class="form-heading">
-            <h3>Reserve Your Date</h3>
+            <h3>Finalize Registration</h3>
             <p>Fill out the form below to lock your date and themes with us</p>
         </div>
-
-        <div class="input-group">
-            <label>Full Name</label>
-            <input type="text" name="data[Name]" placeholder="Enter full name" class="input-field" required>
-        </div>
-
-        <div class="input-group">
-            <label>Contact Number</label>
-            <input type="tel" name="data[Phone]" placeholder="Contact number" class="input-field" required>
-        </div>
-
-        <div class="input-group">
-            <label>Event Date</label>
-            <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
-        </div>
-
+        <input type="text" name="data[Name]" placeholder="Full Name" class="input-field" required>
+        <input type="tel" name="data[Phone]" placeholder="Contact Number" class="input-field" required>
+        <input type="date" name="data[Event_Date]" class="input-field" required style="color-scheme: dark;">
         <button type="submit" class="btn-register">REGISTER NOW</button>
     </div>
 </form>
