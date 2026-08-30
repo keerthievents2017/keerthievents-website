@@ -9,7 +9,6 @@
     <meta name="keywords" content="Keerthi Events, birthday event planner, luxury birthday themes, stage decor, carnival theme, jungle safari birthday, swan theme, Hyderabad India">
     <meta name="author" content="Keerthi Events">
 
-    <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
@@ -32,7 +31,6 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
 
-        /* LUXURY OBSIDIAN & GOLD AMBIENT BACKGROUND */
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background-color: var(--dark);
@@ -48,7 +46,7 @@
             line-height: 1.6;
         }
 
-        /* ENTRANCE ANIMATION */
+        /* ENTRANCE SPLASH */
         #site-entrance {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at center, #2e1a0a 0%, #080604 100%);
@@ -135,11 +133,12 @@
             border-color: var(--gold);
             box-shadow: 0 15px 30px rgba(0,0,0,0.7), 0 0 20px var(--gold-glow);
         }
-        .catalog-item img { 
+        .catalog-item img, .catalog-item video { 
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
             object-fit: cover; z-index: 1; transition: transform 0.6s ease;
+            background: #000;
         }
-        .catalog-item:hover img { transform: scale(1.05); }
+        .catalog-item:hover img, .catalog-item:hover video { transform: scale(1.05); }
         .card-scrim {
             position: absolute; inset: 0; z-index: 2;
             background: linear-gradient(180deg, rgba(7,7,9,0.05) 0%, rgba(7,7,9,0.45) 55%, rgba(7,7,9,0.95) 100%);
@@ -254,10 +253,10 @@
         </div>
         
         <div class="catalog-grid">
-            <!-- 1. Swan Wings -->
+            <!-- 1. Swan Wings Image -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Swan & Angel Wings">
-                <img src="swan%20wing%20photo.jpg" alt="Swan Wings Theme" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80'">
+                <img src="swan wing photo.jpg" alt="Swan Wings Theme" onerror="this.src='https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80'">
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Swan & Angel Wings</span>
@@ -265,10 +264,10 @@
                 </div>
             </label>
 
-            <!-- 2. Princess Fairy Castle -->
+            <!-- 2. Joanna Fairy Castle Image -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Princess Fairy Castle">
-                <img src="castle%20photo.jpg" alt="Princess Theme" onerror="this.src='https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=600&q=80'">
+                <img src="castle photo.jpg" alt="Princess Theme" onerror="this.src='https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&w=600&q=80'">
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Fairy Castle</span>
@@ -276,10 +275,12 @@
                 </div>
             </label>
 
-            <!-- 3. Balloon Sky Vista -->
+            <!-- 3. Aarav Hot Air Balloon & Teddy Video -->
             <label class="catalog-item">
-                <input type="checkbox" name="data[Custom_Theme]" value="Hot Air Balloon Sky">
-                <img src="teddy%20stage%20photo.jpg" alt="Balloon Theme" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80'">
+                <input type="checkbox" name="data[Custom_Theme]" value="Balloon Sky Vista">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="aarav-balloon.mp4" type="video/mp4">
+                </video>
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Balloon Sky Vista</span>
@@ -287,10 +288,12 @@
                 </div>
             </label>
 
-            <!-- 4. Candyland Carnival -->
+            <!-- 4. Surya Dev Sweet Candyland Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Candyland Carnival">
-                <img src="donut%20photo.jpg" alt="Candyland Theme" onerror="this.src='https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80'">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="suryadev-candyland.mp4" type="video/mp4">
+                </video>
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Candyland Carnival</span>
@@ -298,10 +301,12 @@
                 </div>
             </label>
 
-            <!-- 5. Underwater Realm -->
+            <!-- 5. Raksha Underwater Realm Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Underwater Kingdom">
-                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=600&q=80" alt="Underwater Theme">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="raksha-underwater.mp4" type="video/mp4">
+                </video>
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Underwater Realm</span>
@@ -309,10 +314,12 @@
                 </div>
             </label>
 
-            <!-- 6. Michael Grand Carnival -->
+            <!-- 6. Michael Grand Carnival Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Michael Grand Carnival">
-                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80" alt="Grand Carnival Theme">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="michael-carnival.mp4" type="video/mp4">
+                </video>
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Grand Carnival</span>
@@ -320,10 +327,12 @@
                 </div>
             </label>
 
-            <!-- 7. Butterfly Wonderland -->
+            <!-- 7. Mihira Butterfly Wonderland Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Butterfly Wonderland">
-                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Butterfly Theme">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="mihira-butterfly.mp4" type="video/mp4">
+                </video>
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Butterfly Wonderland</span>
@@ -331,10 +340,12 @@
                 </div>
             </label>
 
-            <!-- 8. Jungle Safari Waterfall -->
+            <!-- 8. Jaivik Jungle Safari Waterfall Video -->
             <label class="catalog-item">
                 <input type="checkbox" name="data[Custom_Theme]" value="Jungle Safari Waterfall">
-                <img src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?auto=format&fit=crop&w=600&q=80" alt="Jungle Safari Theme">
+                <video autoplay muted loop playsinline webkit-playsinline preload="auto">
+                    <source src="jaivik-jungle.mp4" type="video/mp4">
+                </video>
                 <div class="card-scrim"></div>
                 <div class="card-content">
                     <span class="card-title">Jungle Waterfall</span>
@@ -385,6 +396,15 @@
 </div>
 
 <script>
+    // Ensure all inline mobile videos autoplay silently
+    document.addEventListener('DOMContentLoaded', () => {
+        const videos = document.querySelectorAll('video');
+        videos.forEach(v => {
+            v.muted = true;
+            v.play().catch(() => {});
+        });
+    });
+
     window.onload = function() { 
         setTimeout(() => { 
             document.getElementById('overlay').classList.add('active'); 
